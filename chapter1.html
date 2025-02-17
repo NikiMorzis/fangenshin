@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 1: Звездная Встреча - Название Вашей Новеллы</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Название Вашей Новеллы</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О новелле</a></li>
+                <li><a href="chapters.html">Читать</a></li>
+                <li><a href="characters.html">Персонажи</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="chapter-page">
+        <article class="chapter-content" id="chapter-content">
+            <h2>Глава 1: Звездная Встреча</h2>
+
+            <p>Песок холодит щеку. Ты открываешь глаза и видишь лишь бескрайнее небо над головой. Где ты? Как ты здесь оказался?</p>
+            <p>Ты поднимаешься и осматриваешься. Вокруг – лишь незнакомый берег, омываемый лазурными волнами. Память словно затянута туманом, ты не помнишь ничего.</p>
+            <p>Вдруг ты слышишь звонкий голосок:</p>
+            <p>– Эй! Ты кто такой? И что ты тут делаешь?</p>
+            <p>Перед тобой парит маленькая девочка с белоснежными волосами и большими выразительными глазами. Она одета в причудливый наряд, а вокруг нее сияют крошечные звездочки.</p>
+            <p>– Я… я не помню, – отвечаешь ты, чувствуя, как голова раскалывается от боли.</p>
+
+            <div id="paimonQuestion1" class="question-container">
+                <p>Паймон: Не помнишь?! Да кто же ты такой, амнезийный мешок с картошкой?! Как тебя хоть зовут?</p>
+                 <div id="choice0" class="choice-container">
+                 <button class="choice-button" data-next="paimonResponse0">Мне нужно отдохнуть...</button>
+                 <button class="choice-button" data-next="paimonResponse1">Я просто прохожий...</button>
+                 <button class="choice-button" data-next="input">Я не помню</button>
+                 </div>
+
+            </div>
+
+             <div id="paimonResponse0" class="response hidden">
+                 <p>Паймон: Серьезно? Никаких слов?! Что с тобой такое?</p>
+                  <p> Паймон: Слайм!</p>
+                   <div id="choice2" class="choice-container">
+                     <button class="choice-button" data-next="response4a">Сразиться со слаймом.</button>
+                     <button class="choice-button" data-next="loss2">Убежать.</button>
+                 </div>
+
+            </div>
+
+            <div id="paimonResponse1" class="response hidden">
+                 <p>Паймон: Хочешь что бы тебя оставили в покое?</p>
+                 <p> Паймон: Слайм!</p>
+                   <div id="choice2" class="choice-container">
+                     <button class="choice-button" data-next="response4a">Сразиться со слаймом.</button>
+                     <button class="choice-button" data-next="loss2">Убежать.</button>
+                 </div>
+            </div>
+
+             <div id="input" class="response hidden input">
+              <input type="text" id="playerName" placeholder="Введите свое имя">
+                <button class="submit-button" data-next="paimonResponse2">Ответить</button>
+            </div>
+
+            <div id="paimonResponse2" class="response hidden">
+                <p>Ты: <span id="playerNameDisplay"></span></p>
+                <p>Паймон: <span id="playerNameDisplay2"></span>? Хм, звучит странно. Ладно, неважно. Меня зовут Паймон! Я буду твоим проводником!</p>
+                   <p> Паймон: Слайм!</p>
+                  <div id="choice2" class="choice-container">
+                     <button class="choice-button" data-next="response4a">Сразиться со слаймом.</button>
+                     <button class="choice-button" data-next="loss2">Убежать.</button>
+                 </div>
+            </div>
+            <div id="response4a" class="response hidden">
+                <p>Ты выхватываешь оружие и бросаешься в бой. Слайм оказывается слабаком, и ты быстро расправляешься с ним.</p>
+                <p>– Ух ты! Ты умеешь сражаться! – восхищается Паймон. – Ладно, пошли дальше!</p>
+                <a href="chapter2.html" class="button">Продолжить</a>
+            </div>
+
+            <div id="loss2" class="response hidden loss">
+                <p>Ты решаешь, что сражаться – не твое, и пытаешься убежать. Но слайм оказывается быстрее! Он настигает тебя и сбивает с ног. Ты теряешь сознание.</p>
+                <p>Когда ты приходишь в себя, ты понимаешь, что заблудился. Паймон нигде не видно. Ты один, без памяти и без надежды.</p>
+                <p>Игра окончена.</p>
+                <button class="back-button">Вернуться к предыдущему выбору</button>
+            </div>
+
+        </article>
+
+        <aside class="chapter-sidebar">
+            <h3>Примечания автора</h3>
+            <p>Добро пожаловать в мир Тейвата! В этой главе ты встретишь Паймон и напишешь свою историю!</p>
+            <button class="restart-button">Переиграть главу</button>
+        </aside>
+    </main>
+
+    <footer>
+         <p>&copy; 2025 NikiMorzis. Все права защищены.</p>
+        <div class="navigation-buttons">
+            <a href="chapters.html" class="button">Вернуться к списку глав</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
