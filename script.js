@@ -183,3 +183,93 @@
         }
         showResponse(next);
     }
+    // ... (ваш существующий код script.js) ...
+
+// Новые переменные для боя
+let playerHP = 100;
+const playerDamage = 10;
+let slimeHP = 25;
+const slimeDamage = 3;
+
+// Функция начала боя (показывает блок боя и скрывает диалог)
+function startBattle() {
+  document.getElementById("dialogue-container").style.display = "none";
+  document.getElementById("battle-container").style.display = "block";
+}
+
+// Функция атаки игрока
+function playerAttack() {
+  slimeHP -= playerDamage;
+  updateBattleLog(`Вы нанесли слайму ${playerDamage} урона!`);
+  updateSlimeHP();
+  if (slimeHP <= 0) {
+    checkBattleResult();
+  } else {
+    slimeAttack();
+  }
+}
+
+// Функция атаки слайма
+function slimeAttack() {
+  playerHP -= slimeDamage;
+  updateBattleLog(`Слайм нанес вам ${slimeDamage} урона!`);
+  updatePlayerHP();
+  checkBattleResult();
+}
+
+// Обновление здоровья игрока
+function updatePlayerHP() {
+  document.getElementById("player-hp").innerText = playerHP;
+}
+
+// Обновление здоровья слайма
+function updateSlimeHP() {
+  document.getElementById("slime-hp").innerText = slimeHP;
+}
+
+// Обновление лога боя
+function updateBattleLog(message) {
+  const battleLog = document.getElementById("battle-log");
+  battleLog.innerHTML += `<p>${message}</p>`;
+  battleLog.scrollTop = battleLog.scrollHeight;
+}
+
+// Проверка результата боя
+function checkBattleResult() {
+  if (playerHP <= 0) {
+    playerHP = 0;
+    updatePlayerHP();
+    showResult("Вы проиграли! Слайм оказался сильнее.");
+  } else if (slimeHP <= 0) {
+    slimeHP = 0;
+    updateSlimeHP();
+    showResult("Вы победили слайма! Паймон вами гордится!");
+  }
+}
+
+// Отображение результата боя
+function showResult(message) {
+  document.getElementById("result-text").innerText = message;
+  document.getElementById("result").style.display = "block";
+  document.getElementById("actions").style.display = "none";
+}
+
+// Функция окончания главы (переход к следующей главе)
+function endChapter() {
+  window.location.href = "chapter2.html"; // Замените на ссылку на следующую главу
+}
+
+// Добавляем обработчики событий после загрузки страницы
+document.addEventListener('DOMContentLoaded', function() {
+  // ... (ваш существующий код DOMContentLoaded) ...
+
+  // Обработчик кнопки "Начать сражение со слаймом"
+  const startBattleButton = document.getElementById("start-battle");
+  if (startBattleButton) {
+    startBattleButton.addEventListener("click", startBattle);
+  }
+
+  // Обновляем отображение здоровья
+  updatePlayerHP();
+  updateSlimeHP();
+});
