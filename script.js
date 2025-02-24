@@ -27,13 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultElement = document.getElementById("result");
     const resultTextElement = document.getElementById("result-text");
     const postBattleDialogue = document.getElementById("post-battle-dialogue");
-    const startBattleButton = document.getElementById("start-battle");
-
-    // Бой 2 элементы
-    const battleContainer2 = document.getElementById("battle-container2");
-    const playerHPElement2 = document.getElementById("player-hp2");
-    const monsterHPElement = document.getElementById("monster-hp");
-    const startBattleButton2 = document.getElementById("start-battle2");
 
     let history = [];
 
@@ -235,42 +228,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-    // === ПЕРЕНОСИМ КОД СЮДА ===
-    // === Обработчики событий для боя 1 ===
-    const startBattleButton = document.getElementById("start-battle"); // Получаем кнопку здесь
-    if (startBattleButton) {
-        startBattleButton.addEventListener("click", startBattle);
-        console.log('Кнопка startBattleButton привязана');
-    }
-
-    const attackButton = document.getElementById("attack-button"); // Получаем кнопку здесь
-    if (attackButton) {
-      attackButton.addEventListener("click", playerAttack);
-      console.log('Кнопка attackButton привязана');
-    }
-
-    const resultElement = document.getElementById("result");
-    if (resultElement) {
-        const continueButton = resultElement.querySelector('button'); // Находим кнопку внутри #result
-        if (continueButton) {
-          continueButton.addEventListener("click", continueDialogue);
-          console.log('Кнопка continueButton привязана');
-        }
-    }
-
-    // === Обработчики событий для боя 2 ===
-    const startBattleButton2 = document.getElementById("start-battle2"); // Получаем кнопку здесь
-    if (startBattleButton2) {
-      startBattleButton2.addEventListener("click", startBattle2);
-      console.log('Кнопка startBattleButton2 привязана');
-    }
-
-    // Получаем кнопку здесь
-    const attackButton2 = document.getElementById("attack-button2");
-    if (attackButton2) {
-        attackButton2.addEventListener("click", playerAttack2);
-        console.log('Кнопка attackButton2 привязана');
-    }
     saveProgress();
 }
 
@@ -294,10 +251,50 @@ function goBack() {
     }
 }
 
+// === Обработчики событий (Event Delegation) ===
+document.addEventListener('click', function(event) {
+    console.log("Клик:", event.target); // Добавлено для отладки.  Показывает, куда был клик
+    // Обработчики для кнопок боя
+    if (event.target.matches('#start-battle')) {
+        startBattle();
+    } else if (event.target.matches('#attack-button')) {
+        playerAttack();
+    } else if (event.target.matches('#start-battle2')) {
+        startBattle2();
+    } else if (event.target.matches('#attack-button2')) {
+        playerAttack2();
+    } else if (event.target.matches('#result button')) {
+        continueDialogue();
+    }
+
+    // Обработчик для кнопок выбора (choice-button)
+    if (event.target.classList.contains('choice-button')) {
+        console.log("Нажата кнопка выбора:", event.target.dataset.next); // Добавлено для отладки
+        handleButtonClick(event.target); // Передаем нажатую кнопку в handleButtonClick
+    }
+});
+
 function handleButtonClick(button) {
     const next = button.dataset.next;
+    console.log("Переход к:", next); // Добавлено для отладки
     showResponse(next);
 }
+
+// Все привязки событий удалены из attachEventListeners
+function attachEventListeners() {
+      // === Обработчик события для кнопки "Назад" ===
+      if (backButton) {
+          backButton.addEventListener('click', goBack);
+      }
+
+      // === Обработчики событий для кнопок отправки формы ===
+      document.querySelectorAll('.submit-button').forEach(button => {
+          button.addEventListener('click', function() {
+              handleSubmit(this);
+          });
+      });
+}
+
 
 function handleSubmit(button) {
     const next = button.dataset.next;
@@ -322,6 +319,7 @@ function handleSubmit(button) {
     showResponse(next);
 }
 
+
 function restartChapter() {
     localStorage.removeItem('chapterContent');
     localStorage.removeItem('history');
@@ -329,33 +327,12 @@ function restartChapter() {
     location.reload();
 }
 
-// Все привязки событий удалены из attachEventListeners
-function attachEventListeners() {
 
-      document.querySelectorAll('.choice-button').forEach(button => {
-          button.addEventListener('click', function() {
-              handleButtonClick(this);
-          });
-      });
-
-      // === Обработчики событий для кнопок отправки формы ===
-      document.querySelectorAll('.submit-button').forEach(button => {
-          button.addEventListener('click', function() {
-              handleSubmit(this);
-          });
-      });
-
-      // === Обработчик события для кнопки "Назад" ===
-      if (backButton) {
-          backButton.addEventListener('click', goBack);
-      }
-}
-
-    // === Инициализация ===
-    updatePlayerHP();
-    updatePlayerHP2(); // Инициализируем HP для второго боя
-    updateSlimeHP();
-    updateMonsterHP();
-    attachEventListeners();  // Оставляем привязку для кнопок choice-button
-    loadProgress();
+// === Инициализация ===
+updatePlayerHP();
+updatePlayerHP2();
+updateSlimeHP();
+updateMonsterHP();
+attachEventListeners(); // Оставляем привязку только для backButton и submit-button
+loadProgress();
 });
