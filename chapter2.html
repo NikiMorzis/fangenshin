@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 2: Тайны Шепчущего Леса - Новелла</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!-- Шапка сайта (как в вашем файле) -->
+    </header>
+
+    <main class="chapter-page">
+        <div class="chapter-content">
+            <h2>Глава 2: Тайны Шепчущего Леса</h2>
+
+            <div id="dialogue-container">
+                <p><em>(Вы и Паймон входите в Шепчущий Лес. Деревья кажутся живыми, и отовсюду слышатся шепоты.)</em></p>
+                <p><strong>Паймон:</strong> Ох, Паймон не любит это место... Здесь жутковато!</p>
+                <p><strong>Паймон:</strong> Кстати, поздравляю! Ты получил 2 уровень! И смотри, что у нас есть!</p>
+                <p><em>(Паймон показывает вам древний амулет, который увеличивает ваше здоровье и урон.)</em></p>
+                <p><strong>Паймон:</strong> Этот артефакт добавляет тебе 200 HP и +15 к урону! Теперь ты намного сильнее!</p>
+
+                <div class="choice-container" id="forest-entrance">
+                    <p>Что вы сделаете?</p>
+                    <button class="choice-button" data-next="forest-explore">Продолжить исследовать лес</button>
+                    <button class="choice-button" data-next="forest-retreat">Предложить вернуться назад</button>
+                </div>
+
+                <div class="response hidden" id="forest-explore">
+                    <p><em>(Вы решаете продолжить путь вглубь леса. Шепоты становятся громче, и вы замечаете странные светящиеся грибы.)</em></p>
+                    <p><strong>Паймон:</strong> Смотри! Грибы светятся! Может, они съедобные?</p>
+                    <p><strong>Паймон:</strong> Кстати, я вспомнила! Старые легенды говорят о 100 этажах испытаний, которые нужно пройти, чтобы спасти мир от древнего зла!</p>
+
+                    <div class="choice-container" id="glowing-mushrooms">
+                        <p>Что вы сделаете?</p>
+                        <button class="choice-button" data-next="eat-mushroom">Попробовать один из грибов</button>
+                        <button class="choice-button" data-next="ignore-mushrooms">Игнорировать грибы и идти дальше</button>
+                        <button class="choice-button" data-next="examine-mushrooms">Внимательно осмотреть грибы</button>
+                    </div>
+                </div>
+
+                <div class="response hidden" id="forest-retreat">
+                    <p><strong>Паймон:</strong> Фух, Паймон рада! Пошли отсюда скорее!</p>
+                    <p><em>(Вы возвращаетесь к краю леса, но внезапно слышите крик вдалеке.)</em></p>
+                    <p><strong>Паймон:</strong> Что это было?! Может, кто-то нуждается в помощи?</p>
+
+                    <div class="choice-container" id="help-or-not">
+                        <p>Что вы сделаете?</p>
+                        <button class="choice-button" data-next="go-help">Пойти на звук крика</button>
+                        <button class="choice-button" data-next="stay-put">Решить, что это слишком опасно, и уйти</button>
+                    </div>
+                </div>
+
+                <!-- Развилки для грибов -->
+                <div class="response hidden" id="eat-mushroom">
+                    <p><em>(Вы откусываете кусочек светящегося гриба...)</em></p>
+                    <p><strong>Паймон:</strong> Эй, что ты делаешь?! Вдруг он ядовитый?</p>
+
+                    <div class="choice-container" id="mushroom-effect">
+                        <p>Что вы чувствуете?</p>
+                        <button class="choice-button" data-next="mushroom-good">Прилив энергии и ясность ума</button>
+                        <button class="choice-button" data-next="mushroom-bad">Сильную тошноту и головокружение</button>
+                    </div>
+                </div>
+
+                <div class="response hidden" id="ignore-mushrooms">
+                    <p><em>(Вы решаете не рисковать и обходите грибы стороной. Вскоре вы натыкаетесь на странную каменную плиту с символами.)</em></p>
+                    <p><strong>Паймон:</strong> Что это такое? Может, это карта сокровищ?</p>
+
+                    <div class="choice-container" id="stone-slab">
+                        <p>Что вы сделаете?</p>
+                        <button class="choice-button" data-next="translate-symbols">Попытаться расшифровать символы</button>
+                        <button class="choice-button" data-next="draw-symbols">Зарисовать символы и пойти дальше</button>
+                    </div>
+                </div>
+
+                <div class="response hidden" id="examine-mushrooms">
+                    <p><em>(Вы внимательно осматриваете грибы. Замечаете, что на одном из них выцарапано маленькое лицо.)</em></p>
+                    <p><strong>Паймон:</strong> Фу! Кто-то уже жевал их! Пошли отсюда!</p>
+
+                    <div class="choice-container" id="mushroom-face">
+                        <p>Что вы сделаете?</p>
+                        <button class="choice-button" data-next="talk-mushroom">Попытаться заговорить с грибом</button>
+                        <button class="choice-button" data-next="leave-mushrooms">Поскорее уйти</button>
+                    </div>
+                </div>
+
+                <!-- Развилки для помощи кричащему -->
+                <div class="response hidden" id="go-help">
+                    <p><em>(Вы бежите на звук крика и обнаруживаете маленькую девочку, окруженную монстрами.)</em></p>
+                    <p><strong>Паймон:</strong> О нет! Нужно ей помочь!</p>
+
+                    <div class="choice-container" id="help-battle">
+                        <p>Что вы сделаете?</p>
+                        <button class="choice-button" data-next="battle-start">Вступить в бой</button>
+                        <button class="choice-button" data-next="distract-monsters">Попытаться отвлечь монстров</button>
+                    </div>
+                </div>
+
+                <div class="response hidden" id="stay-put">
+                    <p><strong>Паймон:</strong> Правильное решение! Лучше не рисковать!</p>
+                    <p><em>(Вы продолжаете свой путь, но вас преследует чувство вины...)</em></p>
+                    <p>КОНЕЦ ГЛАВЫ (плохая концовка)</p>
+                </div>
+
+                <!-- Последствия грибов -->
+                <div class="response hidden" id="mushroom-good">
+                    <p><em>(Вы чувствуете себя невероятно сильным и полным энергии!)</em></p>
+                    <p><strong>Паймон:</strong> Вау! Может, мне тоже стоило попробовать?</p>
+                    <p><em>(Вы легко преодолеваете любые препятствия на своем пути и находите древний артефакт.)</em></p>
+                    <p>КОНЕЦ ГЛАВЫ (хорошая концовка)</p>
+                </div>
+
+                <div class="response hidden" id="mushroom-bad">
+                    <p><em>(Вы падаете на землю, вас тошнит и кружится голова...)</em></p>
+                    <p><strong>Паймон:</strong> Я же говорила!</p>
+                    <p><em>(Вы теряете сознание...)</em></p>
+                    <p>КОНЕЦ ГЛАВЫ (плохая концовка)</p>
+                </div>
+
+                <!-- Каменная плита -->
+                <div class="response hidden" id="translate-symbols">
+                    <p><em>(Вы тратите много времени, пытаясь расшифровать символы. В конце концов вам удается понять, что это карта к сокровищу!)</em></p>
+                    <p><strong>Паймон:</strong> Ура! Пошли искать сокровище!</p>
+                    <p>КОНЕЦ ГЛАВЫ (нейтральная концовка)</p>
+                </div>
+
+                <div class="response hidden" id="draw-symbols">
+                    <p><em>(Вы зарисовываете символы и продолжаете свой путь. Может быть, когда-нибудь вы сможете их расшифровать...)</em></p>
+                    <p>КОНЕЦ ГЛАВЫ (нейтральная концовка)</p>
+                </div>
+
+                <!-- Говорящий гриб -->
+                <div class="response hidden" id="talk-mushroom">
+                    <p><em>(Вы наклоняетесь к грибу и начинаете шептать...)</em></p>
+                    <p><strong>Гриб:</strong> (тихий шепот) Иди дальше... найди меня...</p>
+                    <p><strong>Паймон:</strong> Ты с ума сошел/сошла?!</p>
+                    <p><em>(Вы чувствуете странную связь с лесом...)</em></p>
+                    <p>КОНЕЦ ГЛАВЫ (загадочная концовка)</p>
+                </div>
+
+                <div class="response hidden" id="leave-mushrooms">
+                    <p><em>(Вы поспешно уходите от грибов, чувствуя себя не в своей тарелке...)</em></p>
+                    <p>КОНЕЦ ГЛАВЫ (нейтральная концовка)</p>
+                </div>
+
+                <!-- Битва с монстрами -->
+                <div class="response hidden" id="battle-start">
+                    <p><em>(Вы бросаетесь в бой, чтобы защитить девочку!)</em></p>
+                    <p><em>(Переход к сцене битвы - реализуйте здесь логику боя, как в первой главе)</em></p>
+                    <button class="button" id="start-battle2">Начать сражение с монстрами!</button>
+                      <div id="battle-container2" style="display: none;">
+                        <h2>Бой с Монстрами!</h2>
+                        <div id="battle-log">
+                          <p>Бой начинается!</p>
+                        </div>
+                        <div id="player-stats">
+                          Здоровье: <span id="player-hp2">300</span>, Уровень: 2, Урон: 25
+                        </div>
+                        <div id="slime-stats">
+                          Здоровье: <span id="monster-hp">50</span>, Уровень: 1, Урон: 5
+                        </div>
+                        <div id="actions">
+                          <button id="attack-button2" onclick = playerAttack2();>Атаковать</button>
+                        </div>
+                        <div id="result" style="display: none;">
+                          <p id="result-text"></p>
+                          <button onclick="continueDialogue()">Продолжить</button>
+                        </div>
+                      </div>
+                    <p>(После победы над монстрами девочка благодарит вас и рассказывает о древней легенде леса...)</p>
+                    <p>КОНЕЦ ГЛАВЫ (хорошая концовка)</p>
+                </div>
+
+                 <div class="response hidden" id="distract-monsters">
+                        <p><em>(Вы начинаете громко кричать и бросать камни в другую сторону, отвлекая внимание монстров от девочки.)</em></p>
+                        <p><strong>Паймон:</strong> Бежим, пока они не опомнились!</p>
+                        <p><em>(Вы уводите девочку в безопасное место. Она благодарит вас, но вы чувствуете, что могли бы сделать больше...)</em></p>
+                        <p>КОНЕЦ ГЛАВЫ (нейтральная концовка)</p>
+                    </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Подвал сайта (как в вашем файле) -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
