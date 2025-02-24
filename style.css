@@ -1,20 +1,19 @@
 /* Общие стили */
 body {
-    font-family: 'Noto Sans SC', sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Современный и читаемый шрифт */
     margin: 0;
     padding: 0;
-    background-color: #0b2239; /* Темно-синий фон */
-    color: #ffffff; /* Белый цвет текста */
+    background-color: #1e272d; /* Темный фон, как на сайте Genshin */
+    color: #fff;
     line-height: 1.6;
-    overflow-x: hidden; /* Предотвращение горизонтальной прокрутки */
 }
 
 h1, h2, h3 {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-weight: bold;
-    color: #e4aa4b; /* Золотистый цвет для заголовков */
+    font-family: 'Montserrat', sans-serif; /* Шрифт для заголовков */
+    font-weight: 700;
+    color: #ffc107; /* Золотой цвет для заголовков */
     margin-bottom: 0.5em;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Более выраженная тень для заголовков */
 }
 
 a {
@@ -29,8 +28,8 @@ a:hover {
 }
 
 .button {
-    background-color: #e4aa4b; /* Золотистый цвет для кнопок */
-    color: #0b2239; /* Темно-синий цвет текста для кнопок */
+    background-color: #ffc107; /* Золотой цвет для кнопок */
+    color: #212121; /* Темный цвет текста для кнопок */
     padding: 12px 24px;
     border: none;
     border-radius: 5px;
@@ -41,14 +40,14 @@ a:hover {
 }
 
 .button:hover {
-    background-color: #f0e6d2; /* Светло-бежевый цвет при наведении */
+    background-color: #ffca28; /* Более светлый золотой цвет при наведении */
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* Шапка */
 header {
-    background-color: rgba(11, 34, 57, 0.8); /* Полупрозрачный темно-синий фон */
+    background-color: rgba(33, 41, 48, 0.8); /* Полупрозрачный темный фон */
     padding: 20px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     position: sticky;
@@ -63,7 +62,7 @@ header {
 .logo h1 {
     margin: 0;
     font-size: 2.5em;
-    color: #e4aa4b; /* Золотистый цвет для логотипа */
+    color: #ffc107; /* Золотой цвет для логотипа */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -81,7 +80,7 @@ nav li {
 }
 
 nav a {
-    color: #f0e6d2; /* Светло-бежевый цвет для ссылок */
+    color: #fff;
     font-weight: 600;
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
@@ -93,16 +92,16 @@ nav a:hover {
 
 /* Главная страница (Hero) */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://static.wikia.nocookie.net/genshin-impact/images/9/9b/Character_Paimon_Card.png/revision/latest') center/cover no-repeat; /* Фон в стиле Genshin Impact */
-    color: #ffffff;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.pinimg.com/originals/4a/ca/4b/4aca4b697c1409f54605654449273d5c.jpg') center/cover no-repeat; /* Аниме-фон */
+    color: #fff;
     text-align: center;
     padding: 150px 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Более выраженная тень для текста */
 }
 
 .hero h2 {
     font-size: 3.5em;
-    color: #e4aa4b; /* Золотистый цвет для заголовка */
+    color: #ffc107; /* Золотой цвет для заголовка */
 }
 
 .hero p {
@@ -115,7 +114,7 @@ nav a:hover {
 .author-section,
 .warnings-section {
     padding: 40px 20px;
-    background-color: rgba(11, 34, 57, 0.7); /* Полупрозрачный темно-синий фон */
+    background-color: rgba(33, 41, 48, 0.7); /* Полупрозрачный темный фон */
     margin-bottom: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -129,7 +128,7 @@ nav a:hover {
 
 .chapter-content {
     flex: 2;
-    background-color: rgba(11, 34, 57, 0.7); /* Полупрозрачный темно-синий фон */
+    background-color: rgba(33, 41, 48, 0.7); /* Полупрозрачный темный фон */
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -153,7 +152,7 @@ nav a:hover {
 }
 
 .chapter-card {
-    background-color: rgba(11, 34, 57, 0.7); /* Полупрозрачный темно-синий фон */
+    background-color: rgba(33, 41, 48, 0.7); /* Полупрозрачный темный фон */
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -171,8 +170,8 @@ nav a:hover {
 
 /* Подвал */
 footer {
-    background-color: #0b2239; /* Темно-синий фон для подвала */
-    color: #ffffff;
+    background-color: #1e272d; /* Темный фон для подвала */
+    color: #fff;
     text-align: center;
     padding: 20px 0;
     margin-top: 50px;
@@ -183,7 +182,7 @@ footer {
 .characters-page {
     padding: 40px 20px;
     background: url('https://i.pinimg.com/originals/4a/ca/4b/4aca4b697c1409f54605654449273d5c.jpg') center/cover no-repeat; /* Аниме-фон для страницы персонажей */
-    color: #ffffff;
+    color: #fff;
 }
 
 .character-list {
@@ -193,7 +192,7 @@ footer {
 }
 
 .character-card {
-    background-color: rgba(11, 34, 57, 0.8); /* Полупрозрачный темно-синий фон для карточек */
+    background-color: rgba(33, 41, 48, 0.8); /* Полупрозрачный темный фон для карточек */
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -209,7 +208,7 @@ footer {
     width: 100%;
     height: 250px; /* Увеличенная высота для изображений */
     object-fit: cover;
-    border-bottom: 3px solid #e4aa4b; /* Золотистая линия снизу изображений */
+    border-bottom: 3px solid #ffc107; /* Золотая линия снизу изображений */
 }
 
 .character-info {
@@ -220,13 +219,45 @@ footer {
     font-size: 1.3em;
     font-weight: bold;
     margin-bottom: 0.5em;
-    color: #e4aa4b; /* Золотистый цвет для имен персонажей */
+    color: #ffc107; /* Золотой цвет для имен персонажей */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .character-description {
-    color: #f0e6d2; /* Светло-бежевый цвет для описаний */
+    color: #eee;
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 0;
+    }
+
+    nav li {
+        margin: 0 10px;
+    }
+
+    .chapter-page {
+        flex-direction: column;
+    }
+
+    .chapter-sidebar {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .characters-page {
+        padding: 20px;
+    }
+
+    .character-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .character-image {
+        height: 150px;
+    }
 }
 
 /* Подключение шрифтов Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Montserrat:wght@400;700&display=swap');
