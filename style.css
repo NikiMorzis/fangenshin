@@ -1,54 +1,55 @@
 /* Общие стили */
 body {
-    font-family: 'M PLUS Rounded 1c', sans-serif; /* Мягкий и дружелюбный шрифт */
+    font-family: 'Open Sans', sans-serif; /* Современный и читаемый шрифт */
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #e0f7fa, #fff); /* Светлый и воздушный фон */
-    color: #333;
+    background-color: #1e272d; /* Темный фон, как на сайте Genshin */
+    color: #fff;
     line-height: 1.6;
 }
 
 h1, h2, h3 {
-    font-family: 'Oswald', sans-serif; /* Заметный и стильный шрифт для заголовков */
+    font-family: 'Montserrat', sans-serif; /* Шрифт для заголовков */
     font-weight: 700;
-    color: #e91e63; /* Яркий розовый цвет для заголовков */
+    color: #ffc107; /* Золотой цвет для заголовков */
     margin-bottom: 0.5em;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Небольшая тень для заголовков */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Более выраженная тень для заголовков */
 }
 
 a {
-    color: #29b6f6; /* Яркий голубой цвет для ссылок */
+    color: #29b6f6; /* Голубой цвет для ссылок */
     text-decoration: none;
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 a:hover {
     color: #03a9f4; /* Более яркий голубой цвет при наведении */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .button {
-    background: linear-gradient(to right, #29b6f6, #03a9f4); /* Градиент для кнопок */
-    color: #fff;
+    background-color: #ffc107; /* Золотой цвет для кнопок */
+    color: #212121; /* Темный цвет текста для кнопок */
     padding: 12px 24px;
     border: none;
-    border-radius: 20px; /* Закругленные углы для кнопок */
+    border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Более выраженная тень для кнопок */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
 }
 
 .button:hover {
-    background: linear-gradient(to right, #03a9f4, #29b6f6); /* Меняем градиент при наведении */
-    transform: translateY(-2px); /* Небольшое приподнимание при наведении */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: #ffca28; /* Более светлый золотой цвет при наведении */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* Шапка */
 header {
-    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+    background-color: rgba(33, 41, 48, 0.8); /* Полупрозрачный темный фон */
     padding: 20px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -61,8 +62,8 @@ header {
 .logo h1 {
     margin: 0;
     font-size: 2.5em;
-    color: #e91e63; /* Розовый цвет для логотипа */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Более выраженная тень для логотипа */
+    color: #ffc107; /* Золотой цвет для логотипа */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Навигация */
@@ -79,28 +80,28 @@ nav li {
 }
 
 nav a {
-    color: #777;
+    color: #fff;
     font-weight: 600;
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 nav a:hover {
     color: #29b6f6; /* Голубой цвет при наведении */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Главная страница (Hero) */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.pinimg.com/originals/4a/ca/4b/4aca4b697c1409f54605654449273d5c.jpg') center/cover no-repeat; /* Аниме-фон */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.pinimg.com/originals/4a/ca/4b/4aca4b697c1409f54605654449273d5c.jpg') center/cover no-repeat; /* Аниме-фон */
     color: #fff;
     text-align: center;
     padding: 150px 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Тень для текста на фоне */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Более выраженная тень для текста */
 }
 
 .hero h2 {
     font-size: 3.5em;
-    color: #fff;
+    color: #ffc107; /* Золотой цвет для заголовка */
 }
 
 .hero p {
@@ -113,10 +114,10 @@ nav a:hover {
 .author-section,
 .warnings-section {
     padding: 40px 20px;
-    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон */
+    background-color: rgba(33, 41, 48, 0.7); /* Полупрозрачный темный фон */
     margin-bottom: 30px;
-    border-radius: 15px; /* Более скругленные углы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* Страница чтения главы */
@@ -127,19 +128,19 @@ nav a:hover {
 
 .chapter-content {
     flex: 2;
-    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон */
+    background-color: rgba(33, 41, 48, 0.7); /* Полупрозрачный темный фон */
     padding: 30px;
-    border-radius: 15px; /* Более скругленные углы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .chapter-sidebar {
     flex: 1;
     margin-left: 20px;
     padding: 30px;
-    background-color: rgba(242, 242, 242, 0.7); /* Полупрозрачный серый фон */
-    border-radius: 15px; /* Более скругленные углы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
+    background-color: rgba(52, 73, 94, 0.7); /* Полупрозрачный синий фон */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* Список глав */
@@ -151,15 +152,15 @@ nav a:hover {
 }
 
 .chapter-card {
-    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон */
-    border-radius: 15px; /* Более скругленные углы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
+    background-color: rgba(33, 41, 48, 0.7); /* Полупрозрачный темный фон */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .chapter-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 .chapter-card h3,
@@ -169,18 +170,18 @@ nav a:hover {
 
 /* Подвал */
 footer {
-    background-color: #2c3e50; /* Темно-синий цвет для подвала */
+    background-color: #1e272d; /* Темный фон для подвала */
     color: #fff;
     text-align: center;
     padding: 20px 0;
     margin-top: 50px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Тень для подвала */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Страница персонажей */
 .characters-page {
     padding: 40px 20px;
-    background: url('https://wallpapercave.com/wp/wp7428442.jpg') center/cover no-repeat; /* Аниме-фон для страницы персонажей */
+    background: url('https://i.pinimg.com/originals/4a/ca/4b/4aca4b697c1409f54605654449273d5c.jpg') center/cover no-repeat; /* Аниме-фон для страницы персонажей */
     color: #fff;
 }
 
@@ -191,24 +192,23 @@ footer {
 }
 
 .character-card {
-    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон для карточек */
-    border-radius: 15px; /* Более скругленные углы */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Еще более выраженная тень */
+    background-color: rgba(33, 41, 48, 0.8); /* Полупрозрачный темный фон для карточек */
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #333; /* Темный цвет текста для карточек */
 }
 
 .character-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 .character-image {
     width: 100%;
     height: 250px; /* Увеличенная высота для изображений */
     object-fit: cover;
-    border-bottom: 3px solid #e91e63; /* Розовая линия снизу изображений */
+    border-bottom: 3px solid #ffc107; /* Золотая линия снизу изображений */
 }
 
 .character-info {
@@ -219,12 +219,12 @@ footer {
     font-size: 1.3em;
     font-weight: bold;
     margin-bottom: 0.5em;
-    color: #e91e63; /* Розовый цвет для имен персонажей */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Тень для имен */
+    color: #ffc107; /* Золотой цвет для имен персонажей */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .character-description {
-    color: #555;
+    color: #eee;
 }
 
 /* Адаптивный дизайн */
@@ -260,4 +260,4 @@ footer {
 }
 
 /* Подключение шрифтов Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Oswald:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Montserrat:wght@400;700&display=swap');
