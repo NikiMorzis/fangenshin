@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const startBattleButton = document.getElementById("start-battle");
 
     // Бой 2 элементы
-    const battleContainer2 = document.getElementById("battle-container2"); // Добавлено
-    const playerHPElement2 = document.getElementById("player-hp2"); // Добавлено
-    const monsterHPElement = document.getElementById("monster-hp"); // Добавлено
+    const battleContainer2 = document.getElementById("battle-container2");
+    const playerHPElement2 = document.getElementById("player-hp2");
+    const monsterHPElement = document.getElementById("monster-hp");
     const startBattleButton2 = document.getElementById("start-battle2");
     const attackButton2 = document.getElementById("attack-button2");
 
