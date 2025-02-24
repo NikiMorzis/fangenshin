@@ -11,7 +11,18 @@
 </head>
 <body>
   <header>
-    <!-- Шапка сайта (как в вашем файле) -->
+    <div class="logo">
+      <h1>Новелла по Геншину</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">О новелле</a></li>
+        <li><a href="chapters.html">Читать</a></li>
+        <li><a href="characters.html">Персонажи</a></li>
+        <li><a href="gallery.html">Галерея</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main class="chapter-page">
@@ -55,7 +66,7 @@
           Здоровье: <span id="slime-hp">25</span>, Уровень: 1, Урон: 3
         </div>
         <div id="actions">
-          <button id="attack-button">Атаковать</button> <!-- ***ВАЖНО: добавили id="attack-button"*** -->
+          <button id="attack-button">Атаковать</button>
         </div>
         <div id="result" style="display: none;">
           <p id="result-text"></p>
@@ -75,12 +86,12 @@
   </main>
 
   <footer>
-         <p>&copy; 2025 NikiMorzis(Никита Разживин). Все права защищены.</p>
-        <div class="navigation-buttons">
-            <a href="chapters.html" class="button">Вернуться к списку глав</a>
-        </div>
-    </footer>
+    <p>&copy; 2025 NikiMorzis(Никита Разживин). Все права защищены.</p>
+    <div class="navigation-buttons">
+      <a href="chapters.html" class="button">Вернуться к списку глав</a>
+    </div>
+  </footer>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
