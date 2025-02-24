@@ -1,64 +1,71 @@
 /* Общие стили */
 body {
-    font-family: 'Montserrat', sans-serif; /* Новый шрифт */
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #e0f2f1, #fff); /* Мягкий градиент */
-    color: #333;
-    line-height: 1.8; /* Увеличенный межстрочный интервал */
+    background: linear-gradient(to bottom, #F5F5F5, #fff);
+    color: #424242;
+    line-height: 1.8;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #212121;
 }
 
 a {
-    color: #29b6f6; /* Более яркий голубой цвет */
+    color: #26A69A;
     text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease; /* Добавляем тень при наведении */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 a:hover {
-    color: #03a9f4;
-    text-decoration: none; /* Убираем подчеркивание */
-    text-shadow: 0 0 5px rgba(41, 182, 246, 0.5); /* Тень при наведении */
+    color: #00796B;
+    text-decoration: none;
+    text-shadow: 0 0 5px rgba(38, 166, 154, 0.5);
 }
 
 .button {
-    background: linear-gradient(to right, #29b6f6, #03a9f4); /* Градиент для кнопок */
+    background: #26A69A;
     color: white;
-    padding: 16px 32px; /* Увеличиваем размер кнопок */
+    padding: 16px 32px;
     border: none;
-    border-radius: 8px; /* Более закругленные углы */
+    border-radius: 8px;
     cursor: pointer;
     display: inline-block;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Добавляем эффект трансформации */
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     font-size: 1.2em;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Улучшенная тень для кнопок */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Добавляем тень для текста */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .button:hover {
-    background: linear-gradient(to right, #03a9f4, #29b6f6); /* Меняем градиент при наведении */
-    transform: translateY(-2px); /* Приподнимаем кнопку при наведении */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
+    background: #00796B;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Шапка */
 header {
-    background-color: rgba(255, 255, 255, 0.9); /* Прозрачный фон */
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Улучшенная тень */
-    border-bottom: none; /* Убираем линию снизу */
-    backdrop-filter: blur(5px); /* Эффект размытия фона */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: none;
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
 }
 
 .logo h1 {
-    font-size: 2.4em; /* Увеличиваем размер текста логотипа */
+    font-size: 2.4em;
     margin: 0;
     font-weight: bold;
-    letter-spacing: 1px; /* Добавляем межбуквенный интервал */
-    color: #212121; /* Более темный цвет текста */
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Добавляем тень для текста */
+    letter-spacing: 1px;
+    color: #212121;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -69,70 +76,75 @@ nav ul {
 }
 
 nav li {
-    margin-left: 35px; /* Увеличиваем расстояние между пунктами меню */
+    margin-left: 35px;
 }
 
 nav a {
-    font-size: 1.2em; /* Увеличиваем размер текста меню */
+    font-size: 1.2em;
     display: block;
     padding: 12px 18px;
     border-radius: 8px;
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-    color: #424242; /* Более темный цвет текста */
+    color: #424242;
 }
 
 nav a:hover {
-    background-color: rgba(255, 255, 255, 0.5); /* Светлый фон при наведении */
+    background-color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
-    color: #212121; /* Еще более темный цвет текста */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Добавляем тень при наведении */
+    color: #212121;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Главная страница */
 .hero {
-    padding: 120px 20px; /* Увеличиваем отступы */
+    padding: 120px 20px;
     text-align: center;
-    background: url('https://avatars.mds.yandex.net/i?id=90bb7265b375979729186a707841630b_l-4256903-images-thumbs&n=13') center/cover no-repeat; /* Добавляем фоновое изображение */
-    color: #fff; /* Меняем цвет текста на белый */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Добавляем тень для текста */
+    background: url('https://avatars.mds.yandex.net/i?id=90bb7265b375979729186a707841630b_l-4256903-images-thumbs&n=13') center/cover no-repeat;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
 }
 
 .hero-text {
-    max-width: 900px; /* Ограничиваем ширину текста */
-    margin: 0 auto; /* Центрируем текст */
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .hero h2 {
-    font-size: 4em; /* Увеличиваем размер заголовка */
+    font-size: 4em;
     margin-bottom: 30px;
-    color: #fff; /* Белый цвет заголовка */
+    color: #fff;
     font-weight: bold;
-    letter-spacing: -1px; /* Уменьшаем межбуквенный интервал */
+    letter-spacing: -1px;
 }
 
 .hero p {
     font-size: 1.6em;
     margin-bottom: 50px;
-    color: #eee; /* Светло-серый цвет текста */
+    color: #eee;
     line-height: 1.9;
 }
 
 /* Страница "О новелле" */
-.about-section, .author-section, .warnings-section {
-    padding: 50px; /* Увеличиваем отступы */
+.about-section,
+.author-section,
+.warnings-section {
+    padding: 50px;
     margin-bottom: 40px;
-    background-color: rgba(255, 255, 255, 0.9); /* Прозрачный белый фон */
-    border-radius: 12px; /* Более закругленные углы */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Более заметная тень */
-    backdrop-filter: blur(5px); /* Эффект размытия фона */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
 }
 
-.about-section h2, .author-section h3, .warnings-section h3 {
+.about-section h2,
+.author-section h3,
+.warnings-section h3 {
     margin-bottom: 25px;
     color: #212121;
-    font-size: 2.4em; /* Увеличиваем размер заголовков */
+    font-size: 2.4em;
     font-weight: bold;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Добавляем тень для текста */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .author-section p {
@@ -148,25 +160,25 @@ nav a:hover {
 
 .chapter-content {
     flex: 2;
-    background-color: rgba(255, 255, 255, 0.9); /* Прозрачный белый фон */
-    padding: 50px; /* Увеличиваем отступы */
-    border-radius: 12px; /* Более закругленные углы */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Более заметная тень */
-    font-family: 'Montserrat', sans-serif; /* Используем Montserrat для текста главы */
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
     line-height: 2;
-    font-size: 1.4em; /* Увеличиваем размер шрифта */
-    word-break: break-word; /* Разрыв слов, если они не помещаются в строку */
-    backdrop-filter: blur(5px); /* Эффект размытия фона */
+    font-size: 1.4em;
+    word-break: break-word;
+    backdrop-filter: blur(5px);
 }
 
 .chapter-sidebar {
     flex: 1;
     margin-left: 40px;
-    background-color: rgba(245, 245, 245, 0.9); /* Еще светлее, чем фон body */
+    background-color: rgba(245, 245, 245, 0.9);
     padding: 40px;
-    border-radius: 12px; /* Закругленные углы */
+    border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(5px); /* Эффект размытия фона */
+    backdrop-filter: blur(5px);
 }
 
 .chapter-sidebar h3 {
@@ -174,7 +186,7 @@ nav a:hover {
     color: #212121;
     font-size: 1.8em;
     font-weight: bold;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Добавляем тень для текста */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .chapter-sidebar p {
@@ -188,29 +200,30 @@ nav a:hover {
     padding: 40px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Центрируем карточки */
-    gap: 40px; /* Добавляем промежуток между карточками */
+    justify-content: center;
+    gap: 40px;
 }
 
 .chapter-card {
     width: 400px;
-    background-color: rgba(255, 255, 255, 0.9); /* Прозрачный белый фон */
+    background-color: rgba(255, 255, 255, 0.9);
     margin-bottom: 40px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Более заметная тень */
-    border: none; /* Убираем рамку */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Эффект при наведении */
-    backdrop-filter: blur(5px); /* Эффект размытия фона */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
 .chapter-card:hover {
-    transform: translateY(-5px); /* Поднимаем карточку при наведении */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-.chapter-card h3, .chapter-card p {
-    padding: 25px; /* Увеличиваем отступы */
+.chapter-card h3,
+.chapter-card p {
+    padding: 25px;
 }
 
 .chapter-card h3 {
@@ -218,7 +231,7 @@ nav a:hover {
     margin-bottom: 15px;
     color: #212121;
     font-weight: bold;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Добавляем тень для текста */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .chapter-card p {
@@ -234,20 +247,21 @@ footer {
     padding: 30px;
     text-align: center;
     font-size: 1em;
-    border-top: none; /* Убираем линию сверху */
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Добавляем тень сверху */
+    border-top: none;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
 }
 
 .social-links a {
     display: inline-block;
-    margin: 0 20px; /* Увеличиваем отступы */
+    margin: 0 20px;
     color: #fff;
-    transition: color 0.3s ease, transform 0.3s ease; /* Добавляем эффект трансформации */
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-links a:hover {
     color: #ccc;
-    transform: translateY(-2px); /* Приподнимаем иконку при наведении */
+    transform: translateY(-2px);
 }
 
 /* Адаптивный дизайн */
@@ -291,12 +305,12 @@ footer {
     }
 
     .chapters-list {
-        justify-content: center; /* Центрируем карточки на маленьких экранах */
+        justify-content: center;
         gap: 25px;
     }
 
     .chapter-card {
-        width: 100%; /* Занимаем всю ширину на маленьких экранах */
+        width: 100%;
     }
 }
 
@@ -308,12 +322,12 @@ footer {
 /* Стили для контейнера с вариантами выбора */
 .choice-container {
     margin-top: 25px;
-    text-align: center; /* Центрируем кнопки выбора */
+    text-align: center;
 }
 
 /* Стили для кнопок выбора */
 .choice-button {
-    background: linear-gradient(to right, #43a047, #1b5e20); /* Зеленый градиент */
+    background: linear-gradient(to right, #43a047, #1b5e20);
     border: none;
     color: white;
     padding: 16px 32px;
@@ -324,19 +338,19 @@ footer {
     margin: 5px 3px;
     cursor: pointer;
     border-radius: 8px;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Добавляем эффекты */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 .choice-button:hover {
-    background: linear-gradient(to right, #1b5e20, #43a047); /* Меняем градиент при наведении */
-    transform: translateY(-2px); /* Приподнимаем кнопку при наведении */
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3); /* Увеличиваем тень при наведении */
+    background: linear-gradient(to right, #1b5e20, #43a047);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Стили для кнопки "Назад" */
 .back-button {
-    background: linear-gradient(to right, #e53935, #b71c1c); /* Красный градиент */
+    background: linear-gradient(to right, #e53935, #b71c1c);
     border: none;
     color: white;
     padding: 16px 32px;
@@ -347,20 +361,20 @@ footer {
     margin: 5px 3px;
     cursor: pointer;
     border-radius: 8px;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Добавляем эффекты */
-    display: none; /* Изначально скрываем кнопку */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    display: none;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 .back-button:hover {
-    background: linear-gradient(to right, #b71c1c, #e53935); /* Меняем градиент при наведении */
-    transform: translateY(-2px); /* Приподнимаем кнопку при наведении */
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3); /* Увеличиваем тень при наведении */
+    background: linear-gradient(to right, #b71c1c, #e53935);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Стили для кнопки "Переиграть главу" */
 .restart-button {
-    background: linear-gradient(to right, #ffb300, #f57c00); /* Оранжевый градиент */
+    background: linear-gradient(to right, #ffb300, #f57c00);
     border: none;
     color: white;
     padding: 12px 24px;
@@ -371,115 +385,14 @@ footer {
     margin-top: 12px;
     cursor: pointer;
     border-radius: 8px;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Добавляем эффекты */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 .restart-button:hover {
-    background: linear-gradient(to right, #f57c00, #ffb300); /* Меняем градиент при наведении */
-    transform: translateY(-2px); /* Приподнимаем кнопку при наведении */
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3); /* Увеличиваем тень при наведении */
-}
-/* Общие стили (если их нет, добавьте) */
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-}
-
-nav li {
-    display: inline;
-    margin: 0 20px;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-}
-
-main {
-    padding: 20px;
-    min-height: 400px; /* Чтобы футер не поднимался, если контента мало */
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: relative; /* Важно для прижатия к низу */
-    bottom: 0;
-    width: 100%;
-}
-
-.button {
-    background-color: #555;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-/* Стили для страницы персонажей */
-.characters-page {
-    text-align: center; /* Центрируем содержимое страницы */
-}
-
-.character-list {
-    display: flex;
-    flex-wrap: wrap; /* Перенос на новую строку, если не помещается */
-    justify-content: center; /* Равномерное распределение по горизонтали */
-}
-
-.character {
-    width: 300px; /* Примерная ширина карточки персонажа */
-    margin: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.character img {
-    width: 100%;
-    max-height: 200px; /* Ограничение высоты изображений */
-    object-fit: cover; /* Чтобы изображение не деформировалось */
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.character h3 {
-    margin-top: 0;
-    font-size: 1.2em;
-    color: #333;
-}
-
-.character p {
-    font-size: 0.9em;
-    color: #666;
-}
-
-/* Адаптивность (пример) */
-@media (max-width: 768px) {
-    .character {
-        width: 80%; /* На мобильных устройствах занимаем больше места */
-    }
+    background: linear-gradient(to right, #f57c00, #ffb300);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Стили для сообщения "В разработке" */
@@ -498,4 +411,18 @@ footer {
 
 .development-message p {
     font-size: 1.2em;
+}
+
+/* Скругление углов для разных блоков */
+.about-section,
+.author-section,
+.warnings-section,
+.chapter-content,
+.chapter-sidebar,
+.chapter-card,
+.development-message,
+header,
+.hero,
+footer {
+    border-radius: 12px;
 }
