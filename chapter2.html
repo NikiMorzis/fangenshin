@@ -1,356 +1,205 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // === Объявление переменных ===
-    const chapterContent = document.getElementById('chapter-content');
-    const responses = document.querySelectorAll('.response');
-    const choiceContainers = document.querySelectorAll('.choice-container');
-    const backButton = document.querySelector('.back-button');
-    const restartButton = document.querySelector('.restart-button');
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 2: Тайны Шепчущего Леса - Новелла</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Новелла по Геншину</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О новелле</a></li>
+                <li><a href="chapters.html">Читать</a></li>
+                <li><a href="characters.html">Персонажи</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    // Бой 1
-    let playerHP = 100;
-    const playerDamage = 10;
-    let slimeHP = 25;
-    const slimeDamage = 3;
+    <main class="chapter-page">
+        <div class="chapter-content" id="chapter-content"> <!-- Добавлен id для делегирования событий -->
+            <h2>Глава 2: Тайны Шепчущего Леса</h2>
 
-    // Бой 2
-    let playerHP2 = 300; // Изначальное HP для второго боя после levelUp
-    let playerDamage2 = 25; // Изначальный урон для второго боя после levelUp
-    let monsterHP = 50;
-    const monsterDamage = 5;
+            <div id="dialogue-container">
+                <p><em>(Вы и Паймон входите в Шепчущий Лес. Деревья кажутся живыми, и отовсюду слышатся шепоты.)</em></p>
+                <p><strong>Паймон:</strong> Ох, Паймон не любит это место... Здесь жутковато!</p>
+                <p><strong>Паймон:</strong> Кстати, поздравляю! Ты получил 2 уровень!</p>
+                <p><strong>Паймон:</strong> И смотри, что у нас есть! <em>(Паймон показывает вам древний амулет, который светится мягким светом.)</em></p>
+                <p><strong>Паймон:</strong> Этот амулет дарует тебе невероятную силу! Твоё здоровье увеличилось до 300 единиц, а урон возрос на 15 пунктов! Теперь ты настоящий герой!</p>
+                <p><strong>Паймон:</strong> Ах да! Я вспомнила! Древние легенды гласят о существовании 100 этажей испытаний! Говорят, что только тот, кто сможет пройти их все, сможет спасти наш мир от надвигающейся тьмы!</p>
 
-    const battleContainer = document.getElementById("battle-container");
-    const dialogueContainer = document.getElementById("dialogue-container");
-    const battleLog = document.getElementById("battle-log");
-    const playerHPElement = document.getElementById("player-hp");
-    const slimeHPElement = document.getElementById("slime-hp");
-    const actionsElement = document.getElementById("actions");
-    const resultElement = document.getElementById("result");
-    const resultTextElement = document.getElementById("result-text");
-    const postBattleDialogue = document.getElementById("post-battle-dialogue");
-    const attackButton = document.getElementById("attack-button");
-    const startBattleButton = document.getElementById("start-battle");
+                <div class="choice-container" id="forest-entrance">
+                    <p>Что вы сделаете?</p>
+                    <button class="choice-button" data-next="forest-explore">Продолжить исследовать лес</button>
+                    <button class="choice-button" data-next="forest-retreat">Предложить вернуться назад</button>
+                </div>
 
-    // Бой 2 элементы
-    const battleContainer2 = document.getElementById("battle-container2");
-    const playerHPElement2 = document.getElementById("player-hp2");
-    const monsterHPElement = document.getElementById("monster-hp");
-    const startBattleButton2 = document.getElementById("start-battle2");
-    const attackButton2 = document.getElementById("attack-button2");
+                <div class="response hidden" id="forest-explore">
+                    <p><em>(Вы решаете продолжить путь вглубь леса. Шепоты становятся громче, и вы замечаете странные светящиеся грибы.)</em></p>
+                    <p><strong>Паймон:</strong> Смотри! Грибы светятся! Может, они съедобные?</p>
+                    <div class="choice-container" id="glowing-mushrooms">
+                        <p>Что вы сделаете?</p>
+                        <button class="choice-button" data-next="eat-mushroom">Попробовать один из грибов</button>
+                        <button class="choice-button" data-next="ignore-mushrooms">Игнорировать грибы и идти дальше</button>
+                        <button class="choice-button" data-next="examine-mushrooms">Внимательно осмотреть грибы</button>
+                    </div>
+                </div>
 
-    let history = [];
+                <div class="response hidden" id="forest-retreat">
+                    <p><strong>Паймон:</strong> Фух, Паймон рада! Пошли отсюда скорее!</p>
+                    <p><em>(Вы возвращаетесь к краю леса, но внезапно слышите крик вдалеке.)</em></p>
+                    <p><strong>Паймон:</strong> Что это было?! Может, кто-то нуждается в помощи?</p>
 
-    // === Функции боя ===
-    function startBattle() {
-        console.log("startBattle() вызвана");
-        dialogueContainer.style.display = "none";
-        battleContainer.style.display = "block";
-    }
+                    <div class="choice-container" id="help-or-not">
+                        <p>Что вы сделаете?</p>
+                        <button class="choice-button" data-next="go-help">Пойти на звук крика</button>
+                        <button class="choice-button" data-next="stay-put">Решить, что это слишком опасно, и уйти</button>
+                    </div>
+                </div>
 
-    function playerAttack() {
-        console.log("playerAttack() вызвана, slimeHP:", slimeHP);
-        slimeHP -= playerDamage;
-        updateBattleLog(`Вы нанесли слайму ${playerDamage} урона!`);
-        updateSlimeHP();
-        if (slimeHP <= 0) {
-            checkBattleResult();
-        } else {
-            slimeAttack();
-        }
-    }
+                <!-- Развилки для грибов -->
+                <div class="response hidden" id="eat-mushroom">
+                    <p><em>(Вы откусываете кусочек светящегося гриба...)</em></p>
+                    <p><strong>Паймон:</strong> Эй, что ты делаешь?! Вдруг он ядовитый?</p>
 
-    function slimeAttack() {
-        console.log("slimeAttack() вызвана, playerHP:", playerHP);
-        playerHP -= slimeDamage;
-        updateBattleLog(`Слайм нанес вам ${slimeDamage} урона!`);
-        updatePlayerHP();
-        checkBattleResult();
-    }
+                    <div class="choice-container" id="mushroom-effect">
+                        <p>Что вы чувствуете?</p>
+                        <button class="choice-button" data-next="mushroom-good">Прилив энергии и ясность ума</button>
+                        <button class="choice-button" data-next="mushroom-bad">Сильную тошноту и головокружение</button>
+                    </div>
+                </div>
 
-    function updatePlayerHP() {
-        console.log("updatePlayerHP() вызвана, playerHP:", playerHP);
-        playerHPElement.innerText = playerHP;
-    }
+                <div class="response hidden" id="ignore-mushrooms">
+                    <p><em>(Вы решаете не рисковать и обходите грибы стороной. Вскоре вы натыкаетесь на странную каменную плиту с символами.)</em></p>
+                    <p><strong>Паймон:</strong> Что это такое? Может, это карта сокровищ?</p>
 
-    function updateSlimeHP() {
-        console.log("updateSlimeHP() вызвана, slimeHP:", slimeHP);
-        slimeHPElement.innerText = slimeHP;
-    }
+                    <div class="choice-container" id="stone-slab">
+                        <p>Что вы сделаете?</p>
+                        <button class="choice-button" data-next="translate-symbols">Попытаться расшифровать символы</button>
+                        <button class="choice-button" data-next="draw-symbols">Зарисовать символы и пойти дальше</button>
+                    </div>
+                </div>
 
-    function updateMonsterHP() {
-        console.log("updateMonsterHP() вызвана, monsterHP:", monsterHP);
-        monsterHPElement.innerText = monsterHP;
-    }
+                <div class="response hidden" id="examine-mushrooms">
+                    <p><em>(Вы внимательно осматриваете грибы. Замечаете, что на одном из них выцарапано маленькое лицо.)</em></p>
+                    <p><strong>Паймон:</strong> Фу! Кто-то уже жевал их! Пошли отсюда!</p>
 
-    function updateBattleLog(message) {
-        battleLog.innerHTML += `<p>${message}</p>`;
-        battleLog.scrollTop = battleLog.scrollHeight;
-    }
+                    <div class="choice-container" id="mushroom-face">
+                        <p>Что вы сделаете?</p>
+                        <button class="choice-button" data-next="talk-mushroom">Попытаться заговорить с грибом</button>
+                        <button class="choice-button" data-next="leave-mushrooms">Поскорее уйти</button>
+                    </div>
+                </div>
 
-    function checkBattleResult() {
-        console.log("checkBattleResult() вызвана, playerHP:", playerHP, "slimeHP:", slimeHP);
-        if (playerHP <= 0) {
-            playerHP = 0;
-            updatePlayerHP();
-            showResult("Вы проиграли! Слайм оказался сильнее.");
-        } else if (slimeHP <= 0) {
-            slimeHP = 0;
-            updateSlimeHP();
-            // После победы над слаймом
-            playerLevelUp(); // Функция повышения уровня
-            showResult("Вы победили слайма! Паймон вами гордится!");
-        }
-    }
+                <!-- Развилки для помощи кричащему -->
+                <div class="response hidden" id="go-help">
+                    <p><em>(Вы бежите на звук крика и обнаруживаете маленькую девочку, окруженную монстрами.)</em></p>
+                    <p><strong>Паймон:</strong> О нет! Нужно ей помочь!</p>
 
-    function showResult(message) {
-        console.log("showResult() вызвана, message:", message);
-        resultTextElement.innerText = message;
-        resultElement.style.display = "block";
-        actionsElement.style.display = "none";
-    }
+                    <div class="choice-container" id="help-battle">
+                        <p>Что вы сделаете?</p>
+                        <button class="choice-button" data-next="battle-start">Вступить в бой</button>
+                    </div>
+                </div>
 
-    function continueDialogue() {
-        console.log("continueDialogue() вызвана");
-        battleContainer.style.display = "none";
-        resultElement.style.display = "none";
-        battleContainer2.style.display = "none"; // Скрываем второй контейнер битвы
-        postBattleDialogue.style.display = "block";
-    }
+                <div class="response hidden" id="stay-put">
+                    <p><strong>Паймон:</strong> Правильное решение! Лучше не рисковать!</p>
+                    <p><em>(Вы продолжаете свой путь, но вас преследует чувство вины...)</em></p>
+                    <p>КОНЕЦ ГЛАВЫ (плохая концовка)</p>
+                </div>
 
-    // === Новые функции для боя 2 ===
-    function startBattle2() {
-        console.log("startBattle2() вызвана");
-        dialogueContainer.style.display = "none";
-        battleContainer2.style.display = "block";
-    }
+                <!-- Последствия грибов -->
+                <div class="response hidden" id="mushroom-good">
+                    <p><em>(Вы чувствуете себя невероятно сильным и полным энергии!)</em></p>
+                    <p><strong>Паймон:</strong> Вау! Может, мне тоже стоило попробовать?</p>
+                    <p><em>(Вы легко преодолеваете любые препятствия на своем пути и находите древний артефакт.)</em></p>
+                    <p>КОНЕЦ ГЛАВЫ (хорошая концовка)</p>
+                </div>
 
-    function playerAttack2() {
-        console.log("playerAttack2() вызвана, monsterHP:", monsterHP);
-        monsterHP -= playerDamage2;
-        updateBattleLog(`Вы нанесли монстру ${playerDamage2} урона!`);
-        updateMonsterHP();
-        if (monsterHP <= 0) {
-            checkBattleResult2();
-        } else {
-            monsterAttack();
-        }
-    }
+                <div class="response hidden" id="mushroom-bad">
+                    <p><em>(Вы падаете на землю, вас тошнит и кружится голова...)</em></p>
+                    <p><strong>Паймон:</strong> Я же говорила!</p>
+                    <p><em>(Вы теряете сознание...)</em></p>
+                    <p>КОНЕЦ ГЛАВЫ (плохая концовка)</p>
+                </div>
 
-    function monsterAttack() {
-        console.log("monsterAttack() вызвана, playerHP2:", playerHP2);
-        playerHP2 -= monsterDamage;
-        updateBattleLog(`Монстр нанес вам ${monsterDamage} урона!`);
-        updatePlayerHP2();
-        checkBattleResult2();
-    }
+                <!-- Каменная плита -->
+                <div class="response hidden" id="translate-symbols">
+                    <p><em>(Вы тратите много времени, пытаясь расшифровать символы. В конце концов вам удается понять, что это карта сокровищ!)</em></p>
+                    <p><strong>Паймон:</strong> Ура! Пошли искать сокровище!</p>
+                    <p>КОНЕЦ ГЛАВЫ (нейтральная концовка)</p>
+                </div>
 
-    function updatePlayerHP2() {
-        console.log("updatePlayerHP2() вызвана, playerHP2:", playerHP2);
-        playerHPElement2.innerText = playerHP2;
-    }
+                <div class="response hidden" id="draw-symbols">
+                    <p><em>(Вы зарисовываете символы и продолжаете свой путь. Может быть, когда-нибудь вы сможете их расшифровать...)</em></p>
+                    <p>КОНЕЦ ГЛАВЫ (нейтральная концовка)</p>
+                </div>
 
-    function checkBattleResult2() {
-        console.log("checkBattleResult2() вызвана, playerHP2:", playerHP2, "monsterHP:", monsterHP);
-        if (playerHP2 <= 0) {
-            playerHP2 = 0;
-            updatePlayerHP2();
-            showResult("Вы проиграли! Монстры оказались сильнее.");
-        } else if (monsterHP <= 0) {
-            monsterHP = 0;
-            updateMonsterHP();
-            showResult("Вы победили монстров! Девочка спасена!");
-        }
-    }
+                <!-- Говорящий гриб -->
+                <div class="response hidden" id="talk-mushroom">
+                    <p><em>(Вы наклоняетесь к грибу и начинаете шептать...)</em></p>
+                    <p><strong>Гриб:</strong> (тихий шепот) Иди дальше... найди меня...</p>
+                    <p><strong>Паймон:</strong> Ты с ума сошел/сошла?!</p>
+                    <p><em>(Вы чувствуете странную связь с лесом...)</em></p>
+                    <p>КОНЕЦ ГЛАВЫ (загадочная концовка)</p>
+                </div>
 
-    // === Функция повышения уровня ===
-    function playerLevelUp() {
-        console.log("playerLevelUp() вызвана");
-        playerHP = 300; // Увеличение HP
-        playerDamage2 = 25; // Увеличение урона для второго боя
-        playerHP2 = playerHP; // Устанавливаем в максимум
-        updatePlayerHP();
-        updatePlayerHP2();
-    }
+                <div class="response hidden" id="leave-mushrooms">
+                    <p><em>(Вы поспешно уходите от грибов, чувствуя себя не в своей тарелке...)</em></p>
+                    <p>КОНЕЦ ГЛАВЫ (нейтральная концовка)</p>
+                </div>
 
-    // === Функции для сохранения и загрузки ===
-    function saveProgress() {
-        if (chapterContent) {
-            localStorage.setItem('chapterContent', chapterContent.innerHTML);
-        }
-        localStorage.setItem('history', JSON.stringify(history));
-        console.log('Прогресс сохранен!');
-    }
+                <!-- Битва с монстрами -->
+                <div class="response hidden" id="battle-start">
+                    <p><em>(Вы бросаетесь в бой, чтобы защитить девочку!)</em></p>
+                    <button class="button" id="start-battle2">Начать сражение с монстрами!</button>
 
-    function loadProgress() {
-        const savedContent = localStorage.getItem('chapterContent');
-        const savedHistory = localStorage.getItem('history');
+                    <div id="battle-container2" style="display: none;">
+                        <h2>Бой с Монстрами!</h2>
+                        <div id="battle-log">
+                            <p>Бой начинается!</p>
+                        </div>
+                        <div id="player-stats">
+                            Здоровье: <span id="player-hp2">300</span>, Уровень: 2, Урон: 25
+                        </div>
+                        <div id="slime-stats">
+                            Здоровье: <span id="monster-hp">50</span>, Уровень: 1, Урон: 5
+                        </div>
+                        <div id="actions">
+                            <button id="attack-button2">Атаковать</button>
+                        </div>
+                        <div id="result" style="display: none;">
+                            <p id="result-text"></p>
+                            <button onclick="continueDialogue()">Продолжить</button>
+                        </div>
+                    </div>
+                    <p>(После победы над монстрами девочка благодарит вас и рассказывает о древней легенде леса...)</p>
+                    <p>КОНЕЦ ГЛАВЫ (хорошая концовка)</p>
+                </div>
 
-        if (savedContent && savedHistory && chapterContent) {
-            chapterContent.innerHTML = savedContent;
-            try {
-                history = JSON.parse(savedHistory);
-            } catch (e) {
-                console.error("Ошибка при разборе истории из localStorage:", e);
-                history = [];
-                localStorage.removeItem('history');
-            }
+                <div class="response hidden" id="distract-monsters">
+                    <p><em>(Вы начинаете громко кричать и бросать камни в другую сторону, отвлекая внимание монстров от девочки.)</em></p>
+                    <p><strong>Паймон:</strong> Бежим, пока они не опомнились!</p>
+                    <p><em>(Вы уводите девочку в безопасное место. Она благодарит вас, но вы чувствуете, что могли бы сделать больше...)</em></p>
+                    <p>КОНЕЦ ГЛАВЫ (нейтральная концовка)</p>
+                </div>
+            </div>
+        </div>
+    </main>
 
-            responses.forEach(response => response.classList.add('hidden'));
-            choiceContainers.forEach(container => container.classList.add('hidden'));
+    <footer>
+        <p>&copy; 2025 NikiMorzis(Никита Разживин). Все права защищены.</p>
+    </footer>
 
-            if (history.length === 0 && backButton) {
-                backButton.style.display = 'none';
-            } else if (backButton) {
-                backButton.style.display = 'block';
-            }
-
-            attachEventListeners();
-            console.log('Прогресс загружен!');
-        } else {
-            console.log('Сохранения не найдены.');
-            if (backButton) {
-                backButton.style.display = 'none';
-            }
-        }
-    }
-
-    function showResponse(responseId) {
-        responses.forEach(response => response.classList.add('hidden'));
-        choiceContainers.forEach(container => container.classList.add('hidden'));
-
-        const selectedResponse = document.getElementById(responseId);
-        if (selectedResponse) {
-            selectedResponse.classList.remove('hidden');
-        }
-
-        const currentQuestionContainer = document.activeElement ? document.activeElement.closest('.question-container') : null;
-        const currentChoiceContainer = document.activeElement ? document.activeElement.closest('.choice-container') : null;
-        if (currentQuestionContainer) {
-            history.push(currentQuestionContainer.id);
-            if (backButton) {
-                backButton.style.display = 'block';
-            }
-        }
-        if (currentChoiceContainer) {
-            history.push(currentChoiceContainer.id);
-            if (backButton) {
-                backButton.style.display = 'block';
-            }
-        }
-
-        saveProgress();
-    }
-
-    function goBack() {
-        if (history.length > 0) {
-            const lastChoiceId = history.pop();
-
-            responses.forEach(response => response.classList.add('hidden'));
-            choiceContainers.forEach(container => container.classList.add('hidden'));
-
-            const lastChoiceContainer = document.getElementById(lastChoiceId);
-            if (lastChoiceContainer) {
-                lastChoiceContainer.classList.remove('hidden');
-            }
-
-            saveProgress();
-        }
-
-        if (history.length === 0 && backButton) {
-            backButton.style.display = 'none';
-        }
-    }
-
-    function handleButtonClick(button) {
-        const next = button.dataset.next;
-        showResponse(next);
-    }
-
-    function handleSubmit(button) {
-        const next = button.dataset.next;
-        const questionContainer = button.closest('.input');
-        if (questionContainer) {
-            const inputElement = questionContainer.querySelector('input[type="text"]');
-            if (inputElement) {
-                const inputValue = inputElement.value;
-                const responseId = next;
-
-                const playerNameDisplays = document.querySelectorAll(`#${responseId} [id*="NameDisplay"]`);
-                const playerPlanDisplays = document.querySelectorAll(`#${responseId} [id*="PlanDisplay"]`);
-
-                playerNameDisplays.forEach(display => {
-                    display.textContent = inputValue;
-                });
-                playerPlanDisplays.forEach(display => {
-                    playerPlanDisplays.textContent = inputValue;
-                });
-            }
-        }
-        showResponse(next);
-    }
-
-    function restartChapter() {
-        localStorage.removeItem('chapterContent');
-        localStorage.removeItem('history');
-        history = [];
-        location.reload();
-    }
-
-    function attachEventListeners() {
-        // === Обработчики событий для кнопок выбора ===
-        document.querySelectorAll('.choice-button').forEach(button => {
-            button.addEventListener('click', function() {
-                handleButtonClick(this);
-            });
-        });
-
-        // === Обработчики событий для кнопок отправки формы ===
-        document.querySelectorAll('.submit-button').forEach(button => {
-            button.addEventListener('click', function() {
-                handleSubmit(this);
-            });
-        });
-
-        // === Обработчик события для кнопки "Назад" ===
-        if (backButton) {
-            backButton.addEventListener('click', goBack);
-        }
-
-        // === Обработчики событий для боя 1 ===
-        if (startBattleButton) {
-            startBattleButton.addEventListener("click", startBattle);
-            console.log('Кнопка startBattleButton привязана');
-        }
-
-        if (attackButton) {
-            attackButton.addEventListener("click", playerAttack);
-            console.log('Кнопка attackButton привязана');
-        }
-
-        if (resultElement) {
-            const continueButton = resultElement.querySelector('button'); // Находим кнопку внутри #result
-            if (continueButton) {
-                continueButton.addEventListener("click", continueDialogue);
-                console.log('Кнопка continueButton привязана');
-            }
-        }
-
-        // === Обработчики событий для боя 2 ===
-        if (startBattleButton2) {
-            startBattleButton2.addEventListener("click", startBattle2);
-            console.log('Кнопка startBattleButton2 привязана');
-        }
-
-        if (attackButton2) {
-            attackButton2.addEventListener("click", playerAttack2);
-            console.log('Кнопка attackButton2 привязана');
-        }
-    }
-
-    // === Инициализация ===
-    updatePlayerHP();
-    updatePlayerHP2(); // Инициализируем HP для второго боя
-    updateSlimeHP();
-    updateMonsterHP();
-    attachEventListeners();
-    loadProgress();
-});
+    <script src="script.js"></script>
+</body>
+</html>
