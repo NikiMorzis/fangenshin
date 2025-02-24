@@ -481,3 +481,21 @@ footer {
         width: 80%; /* На мобильных устройствах занимаем больше места */
     }
 }
+
+/* Стили для сообщения "В разработке" */
+.development-message {
+    text-align: center;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.development-message h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.development-message p {
+    font-size: 1.2em;
+}
