@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const slimeDamage = 3;
 
     // Бой 2
-    let playerHP2 = 100; // Изначальное HP для второго боя
-    let playerDamage2 = 10; // Изначальный урон для второго боя
+    let playerHP2 = 300; // Изначальное HP для второго боя после levelUp
+    let playerDamage2 = 25; // Изначальный урон для второго боя после levelUp
     let monsterHP = 50;
     const monsterDamage = 5;
 
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const playerHPElement2 = document.getElementById("player-hp2"); // Добавлено
     const monsterHPElement = document.getElementById("monster-hp"); // Добавлено
     const startBattleButton2 = document.getElementById("start-battle2");
+    const attackButton2 = document.getElementById("attack-button2");
 
     let history = [];
 
@@ -70,8 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
         slimeHPElement.innerText = slimeHP;
     }
 
-     function updateMonsterHP() {
-      monsterHPElement.innerText = monsterHP;
+    function updateMonsterHP() {
+        monsterHPElement.innerText = monsterHP;
     }
 
     function updateBattleLog(message) {
@@ -94,15 +95,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showResult(message) {
-        document.getElementById("result-text").innerText = message;
-        document.getElementById("result").style.display = "block";
-        document.getElementById("actions").style.display = "none";
+        resultTextElement.innerText = message;
+        resultElement.style.display = "block";
+        actionsElement.style.display = "none";
     }
 
     function continueDialogue() {
         battleContainer.style.display = "none";
         resultElement.style.display = "none";
-        battleContainer2.style.display = "none";
+        battleContainer2.style.display = "none"; // Скрываем второй контейнер битвы
         postBattleDialogue.style.display = "block";
     }
 
@@ -149,12 +150,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // === Функция повышения уровня ===
     function playerLevelUp() {
         playerHP = 300; // Увеличение HP
-        playerDamage2 += 15; // Увеличение урона для второго боя
-        playerHP2 = playerHP; //Устанавливаем в максимум
+        playerDamage2 = 25; // Увеличение урона для второго боя
+        playerHP2 = playerHP; // Устанавливаем в максимум
         updatePlayerHP();
         updatePlayerHP2();
-        updateSlimeHP();
-        updateMonsterHP();
     }
 
     // === Функции для сохранения и загрузки ===
@@ -298,30 +297,40 @@ document.addEventListener('DOMContentLoaded', function() {
             backButton.addEventListener('click', goBack);
         }
 
-        // === Обработчики событий для боя ===
+        // === Обработчики событий для боя 1 ===
         if (startBattleButton) {
             startBattleButton.addEventListener("click", startBattle);
+            console.log('Кнопка startBattleButton привязана');
         }
 
         if (attackButton) {
             attackButton.addEventListener("click", playerAttack);
+            console.log('Кнопка attackButton привязана');
         }
 
         if (resultElement) {
             const continueButton = resultElement.querySelector('button'); // Находим кнопку внутри #result
             if (continueButton) {
                 continueButton.addEventListener("click", continueDialogue);
+                console.log('Кнопка continueButton привязана');
             }
         }
+
         // === Обработчики событий для боя 2 ===
         if (startBattleButton2) {
             startBattleButton2.addEventListener("click", startBattle2);
+            console.log('Кнопка startBattleButton2 привязана');
+        }
+
+        if (attackButton2) {
+            attackButton2.addEventListener("click", playerAttack2);
+            console.log('Кнопка attackButton2 привязана');
         }
     }
 
     // === Инициализация ===
     updatePlayerHP();
-    updatePlayerHP2();
+    updatePlayerHP2(); // Инициализируем HP для второго боя
     updateSlimeHP();
     updateMonsterHP();
     attachEventListeners();
