@@ -92,7 +92,7 @@ nav a:hover {
 
 /* Главная страница (Hero) */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.pinimg.com/originals/4a/ca/4b/4aca4b697c1409f54605654449273d5c.jpg') center/cover no-repeat; /* Аниме-фон */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imghippo.com/files/mGU9453tPg.jpg') center/cover no-repeat; /* Аниме-фон */
     color: #fff;
     text-align: center;
     padding: 150px 20px;
