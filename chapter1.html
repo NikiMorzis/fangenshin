@@ -1,38 +1,71 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Глава 1: Звездная Встреча - Новелла по Геншину</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Глава 1: Звездная Встреча - Новелла по Геншину</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>Новелла по Геншину</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О новелле</a></li>
-                <li><a href="chapters.html">Читать</a></li>
-                <li><a href="characters.html">Персонажи</a></li>
-                <li><a href="gallery.html">Галерея</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <!-- Шапка сайта (как в вашем файле) -->
+  </header>
 
-    <main class="chapter-page">
-        <div class="development-message">
-            <h2>Глава 1: В разработке</h2>
-            <p>Эта глава еще не закончена. Пожалуйста, зайдите позже.</p>
-        </div>
-    </main>
+  <main class="chapter-page">
+    <div class="chapter-content">
+      <h2>Глава 1: Звездная Встреча</h2>
 
-    <footer>
+      <div id="dialogue-container">
+        <p><em>(Вы приходите в себя на берегу реки. Рядом с вами парит маленькое существо.)</em></p>
+        <p><strong>Паймон:</strong> Эй, ты кто такой/такая?</p>
+
+        <div class="choice-container" id="paimon-question">
+          <button class="choice-button" data-next="response1">Какая тебе разница, кто ты такая?</button>
+          <button class="choice-button" data-next="response2">Я Путешественник/Путешественница из другого мира. А ты кто такая?</button>
+        </div>
+
+        <div class="response hidden" id="response1">
+          <p><strong>Паймон:</strong> Ого, какой/какая ты грубый/грубая! Но... ладно. Я Паймон, и я буду твоим проводником по этому миру!</p>
+          <button class="choice-button" data-next="paimon-join">Паймон становится вашим спутником</button>
+        </div>
+
+        <div class="response hidden" id="response2">
+          <p><strong>Паймон:</strong> Путешественник/Путешественница? Из другого мира?! Вау! Ну, раз ты здесь новенький/новенькая, я, Паймон, стану твоим проводником!</p>
+          <button class="choice-button" data-next="paimon-join">Паймон становится вашим спутником</button>
+        </div>
+
+        <div class="response hidden" id="paimon-join">
+          <p><strong>Паймон:</strong> Отлично! Теперь, когда я твой проводник, нужно научить тебя сражаться! Вон там слайм, попробуй победить его!</p>
+          <button class="button" id="start-battle">Начать сражение со слаймом!</button>
+        </div>
+      </div>
+
+      <div id="battle-container" style="display: none;">
+        <h2>Бой со Слаймом!</h2>
+        <div id="battle-log">
+          <p>Бой начинается!</p>
+        </div>
+        <div id="player-stats">
+          Здоровье: <span id="player-hp">100</span>, Уровень: 1, Урон: 10
+        </div>
+        <div id="slime-stats">
+          Здоровье: <span id="slime-hp">25</span>, Уровень: 1, Урон: 3
+        </div>
+        <div id="actions">
+          <button onclick="playerAttack()">Атаковать</button>
+        </div>
+        <div id="result" style="display: none;">
+          <p id="result-text"></p>
+          <button onclick="endChapter()">Закончить главу</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
          <p>&copy; 2025 NikiMorzis(Никита Разживин). Все права защищены.</p>
         <div class="navigation-buttons">
             <a href="chapters.html" class="button">Вернуться к списку глав</a>
