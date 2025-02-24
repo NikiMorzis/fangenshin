@@ -41,11 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // === Функции боя ===
     function startBattle() {
+        console.log("startBattle() вызвана");
         dialogueContainer.style.display = "none";
         battleContainer.style.display = "block";
     }
 
     function playerAttack() {
+        console.log("playerAttack() вызвана, slimeHP:", slimeHP);
         slimeHP -= playerDamage;
         updateBattleLog(`Вы нанесли слайму ${playerDamage} урона!`);
         updateSlimeHP();
@@ -57,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function slimeAttack() {
+        console.log("slimeAttack() вызвана, playerHP:", playerHP);
         playerHP -= slimeDamage;
         updateBattleLog(`Слайм нанес вам ${slimeDamage} урона!`);
         updatePlayerHP();
@@ -64,14 +67,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updatePlayerHP() {
+        console.log("updatePlayerHP() вызвана, playerHP:", playerHP);
         playerHPElement.innerText = playerHP;
     }
 
     function updateSlimeHP() {
+        console.log("updateSlimeHP() вызвана, slimeHP:", slimeHP);
         slimeHPElement.innerText = slimeHP;
     }
 
     function updateMonsterHP() {
+        console.log("updateMonsterHP() вызвана, monsterHP:", monsterHP);
         monsterHPElement.innerText = monsterHP;
     }
 
@@ -81,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function checkBattleResult() {
+        console.log("checkBattleResult() вызвана, playerHP:", playerHP, "slimeHP:", slimeHP);
         if (playerHP <= 0) {
             playerHP = 0;
             updatePlayerHP();
@@ -95,12 +102,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showResult(message) {
+        console.log("showResult() вызвана, message:", message);
         resultTextElement.innerText = message;
         resultElement.style.display = "block";
         actionsElement.style.display = "none";
     }
 
     function continueDialogue() {
+        console.log("continueDialogue() вызвана");
         battleContainer.style.display = "none";
         resultElement.style.display = "none";
         battleContainer2.style.display = "none"; // Скрываем второй контейнер битвы
@@ -109,11 +118,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // === Новые функции для боя 2 ===
     function startBattle2() {
+        console.log("startBattle2() вызвана");
         dialogueContainer.style.display = "none";
         battleContainer2.style.display = "block";
     }
 
     function playerAttack2() {
+        console.log("playerAttack2() вызвана, monsterHP:", monsterHP);
         monsterHP -= playerDamage2;
         updateBattleLog(`Вы нанесли монстру ${playerDamage2} урона!`);
         updateMonsterHP();
@@ -125,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function monsterAttack() {
+        console.log("monsterAttack() вызвана, playerHP2:", playerHP2);
         playerHP2 -= monsterDamage;
         updateBattleLog(`Монстр нанес вам ${monsterDamage} урона!`);
         updatePlayerHP2();
@@ -132,10 +144,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updatePlayerHP2() {
+        console.log("updatePlayerHP2() вызвана, playerHP2:", playerHP2);
         playerHPElement2.innerText = playerHP2;
     }
 
     function checkBattleResult2() {
+        console.log("checkBattleResult2() вызвана, playerHP2:", playerHP2, "monsterHP:", monsterHP);
         if (playerHP2 <= 0) {
             playerHP2 = 0;
             updatePlayerHP2();
@@ -149,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // === Функция повышения уровня ===
     function playerLevelUp() {
+        console.log("playerLevelUp() вызвана");
         playerHP = 300; // Увеличение HP
         playerDamage2 = 25; // Увеличение урона для второго боя
         playerHP2 = playerHP; // Устанавливаем в максимум
@@ -266,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     display.textContent = inputValue;
                 });
                 playerPlanDisplays.forEach(display => {
-                    display.textContent = inputValue;
+                    playerPlanDisplays.textContent = inputValue;
                 });
             }
         }
@@ -281,18 +296,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function attachEventListeners() {
+        // === Обработчики событий для кнопок выбора ===
         document.querySelectorAll('.choice-button').forEach(button => {
             button.addEventListener('click', function() {
                 handleButtonClick(this);
             });
         });
 
+        // === Обработчики событий для кнопок отправки формы ===
         document.querySelectorAll('.submit-button').forEach(button => {
             button.addEventListener('click', function() {
                 handleSubmit(this);
             });
         });
 
+        // === Обработчик события для кнопки "Назад" ===
         if (backButton) {
             backButton.addEventListener('click', goBack);
         }
