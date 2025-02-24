@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultElement = document.getElementById("result");
     const resultTextElement = document.getElementById("result-text");
     const postBattleDialogue = document.getElementById("post-battle-dialogue");
-    const attackButton = document.getElementById("attack-button");
     const startBattleButton = document.getElementById("start-battle");
 
     // Бой 2 элементы
@@ -35,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const playerHPElement2 = document.getElementById("player-hp2");
     const monsterHPElement = document.getElementById("monster-hp");
     const startBattleButton2 = document.getElementById("start-battle2");
-    const attackButton2 = document.getElementById("attack-button2");
 
     let history = [];
 
@@ -203,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 backButton.style.display = 'block';
             }
 
-            attachEventListeners();
+            //attachEventListeners(); // Удаляем вызов этой функции!
             console.log('Прогресс загружен!');
         } else {
             console.log('Сохранения не найдены.');
@@ -237,120 +235,127 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
+    // === ПЕРЕНОСИМ КОД СЮДА ===
+    // === Обработчики событий для боя 1 ===
+    const startBattleButton = document.getElementById("start-battle"); // Получаем кнопку здесь
+    if (startBattleButton) {
+        startBattleButton.addEventListener("click", startBattle);
+        console.log('Кнопка startBattleButton привязана');
+    }
+
+    const attackButton = document.getElementById("attack-button"); // Получаем кнопку здесь
+    if (attackButton) {
+      attackButton.addEventListener("click", playerAttack);
+      console.log('Кнопка attackButton привязана');
+    }
+
+    const resultElement = document.getElementById("result");
+    if (resultElement) {
+        const continueButton = resultElement.querySelector('button'); // Находим кнопку внутри #result
+        if (continueButton) {
+          continueButton.addEventListener("click", continueDialogue);
+          console.log('Кнопка continueButton привязана');
+        }
+    }
+
+    // === Обработчики событий для боя 2 ===
+    const startBattleButton2 = document.getElementById("start-battle2"); // Получаем кнопку здесь
+    if (startBattleButton2) {
+      startBattleButton2.addEventListener("click", startBattle2);
+      console.log('Кнопка startBattleButton2 привязана');
+    }
+
+    // Получаем кнопку здесь
+    const attackButton2 = document.getElementById("attack-button2");
+    if (attackButton2) {
+        attackButton2.addEventListener("click", playerAttack2);
+        console.log('Кнопка attackButton2 привязана');
+    }
+    saveProgress();
+}
+
+function goBack() {
+    if (history.length > 0) {
+        const lastChoiceId = history.pop();
+
+        responses.forEach(response => response.classList.add('hidden'));
+        choiceContainers.forEach(container => container.classList.add('hidden'));
+
+        const lastChoiceContainer = document.getElementById(lastChoiceId);
+        if (lastChoiceContainer) {
+            lastChoiceContainer.classList.remove('hidden');
+        }
+
         saveProgress();
     }
 
-    function goBack() {
-        if (history.length > 0) {
-            const lastChoiceId = history.pop();
-
-            responses.forEach(response => response.classList.add('hidden'));
-            choiceContainers.forEach(container => container.classList.add('hidden'));
-
-            const lastChoiceContainer = document.getElementById(lastChoiceId);
-            if (lastChoiceContainer) {
-                lastChoiceContainer.classList.remove('hidden');
-            }
-
-            saveProgress();
-        }
-
-        if (history.length === 0 && backButton) {
-            backButton.style.display = 'none';
-        }
+    if (history.length === 0 && backButton) {
+        backButton.style.display = 'none';
     }
+}
 
-    function handleButtonClick(button) {
-        const next = button.dataset.next;
-        showResponse(next);
-    }
+function handleButtonClick(button) {
+    const next = button.dataset.next;
+    showResponse(next);
+}
 
-    function handleSubmit(button) {
-        const next = button.dataset.next;
-        const questionContainer = button.closest('.input');
-        if (questionContainer) {
-            const inputElement = questionContainer.querySelector('input[type="text"]');
-            if (inputElement) {
-                const inputValue = inputElement.value;
-                const responseId = next;
+function handleSubmit(button) {
+    const next = button.dataset.next;
+    const questionContainer = button.closest('.input');
+    if (questionContainer) {
+        const inputElement = questionContainer.querySelector('input[type="text"]');
+        if (inputElement) {
+            const inputValue = inputElement.value;
+            const responseId = next;
 
-                const playerNameDisplays = document.querySelectorAll(`#${responseId} [id*="NameDisplay"]`);
-                const playerPlanDisplays = document.querySelectorAll(`#${responseId} [id*="PlanDisplay"]`);
+            const playerNameDisplays = document.querySelectorAll(`#${responseId} [id*="NameDisplay"]`);
+            const playerPlanDisplays = document.querySelectorAll(`#${responseId} [id*="PlanDisplay"]`);
 
-                playerNameDisplays.forEach(display => {
-                    display.textContent = inputValue;
-                });
-                playerPlanDisplays.forEach(display => {
-                    playerPlanDisplays.textContent = inputValue;
-                });
-            }
-        }
-        showResponse(next);
-    }
-
-    function restartChapter() {
-        localStorage.removeItem('chapterContent');
-        localStorage.removeItem('history');
-        history = [];
-        location.reload();
-    }
-
-    function attachEventListeners() {
-        // === Обработчики событий для кнопок выбора ===
-        document.querySelectorAll('.choice-button').forEach(button => {
-            button.addEventListener('click', function() {
-                handleButtonClick(this);
+            playerNameDisplays.forEach(display => {
+                display.textContent = inputValue;
             });
-        });
-
-        // === Обработчики событий для кнопок отправки формы ===
-        document.querySelectorAll('.submit-button').forEach(button => {
-            button.addEventListener('click', function() {
-                handleSubmit(this);
+            playerPlanDisplays.forEach(display => {
+                playerPlanDisplays.textContent = inputValue;
             });
-        });
-
-        // === Обработчик события для кнопки "Назад" ===
-        if (backButton) {
-            backButton.addEventListener('click', goBack);
-        }
-
-        // === Обработчики событий для боя 1 ===
-        if (startBattleButton) {
-            startBattleButton.addEventListener("click", startBattle);
-            console.log('Кнопка startBattleButton привязана');
-        }
-
-        if (attackButton) {
-            attackButton.addEventListener("click", playerAttack);
-            console.log('Кнопка attackButton привязана');
-        }
-
-        if (resultElement) {
-            const continueButton = resultElement.querySelector('button'); // Находим кнопку внутри #result
-            if (continueButton) {
-                continueButton.addEventListener("click", continueDialogue);
-                console.log('Кнопка continueButton привязана');
-            }
-        }
-
-        // === Обработчики событий для боя 2 ===
-        if (startBattleButton2) {
-            startBattleButton2.addEventListener("click", startBattle2);
-            console.log('Кнопка startBattleButton2 привязана');
-        }
-
-        if (attackButton2) {
-            attackButton2.addEventListener("click", playerAttack2);
-            console.log('Кнопка attackButton2 привязана');
         }
     }
+    showResponse(next);
+}
+
+function restartChapter() {
+    localStorage.removeItem('chapterContent');
+    localStorage.removeItem('history');
+    history = [];
+    location.reload();
+}
+
+// Все привязки событий удалены из attachEventListeners
+function attachEventListeners() {
+
+      document.querySelectorAll('.choice-button').forEach(button => {
+          button.addEventListener('click', function() {
+              handleButtonClick(this);
+          });
+      });
+
+      // === Обработчики событий для кнопок отправки формы ===
+      document.querySelectorAll('.submit-button').forEach(button => {
+          button.addEventListener('click', function() {
+              handleSubmit(this);
+          });
+      });
+
+      // === Обработчик события для кнопки "Назад" ===
+      if (backButton) {
+          backButton.addEventListener('click', goBack);
+      }
+}
 
     // === Инициализация ===
     updatePlayerHP();
     updatePlayerHP2(); // Инициализируем HP для второго боя
     updateSlimeHP();
     updateMonsterHP();
-    attachEventListeners();
+    attachEventListeners();  // Оставляем привязку для кнопок choice-button
     loadProgress();
 });
