@@ -273,3 +273,46 @@ document.addEventListener('DOMContentLoaded', function() {
   updatePlayerHP();
   updateSlimeHP();
 });
+// ... (Ваш существующий код) ...
+
+// Функция показа диалога после победы
+function continueDialogue() {
+  document.getElementById("battle-container").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  document.getElementById("post-battle-dialogue").style.display = "block";
+}
+
+// Функция showResult изменена
+function showResult(message) {
+    document.getElementById("result-text").innerText = message;
+    document.getElementById("result").style.display = "block";
+    document.getElementById("actions").style.display = "none";
+}
+
+// Функция checkBattleResult изменена
+function checkBattleResult() {
+    if (playerHP <= 0) {
+        playerHP = 0;
+        updatePlayerHP();
+        showResult("Вы проиграли! Слайм оказался сильнее.");
+    } else if (slimeHP <= 0) {
+        slimeHP = 0;
+        updateSlimeHP();
+        showResult("Вы победили слайма! Паймон вами гордится!");
+    }
+}
+
+// Добавляем обработчики событий после загрузки страницы
+document.addEventListener('DOMContentLoaded', function() {
+  // ... (ваш существующий код DOMContentLoaded) ...
+
+  // Обработчик кнопки "Начать сражение со слаймом"
+  const startBattleButton = document.getElementById("start-battle");
+  if (startBattleButton) {
+    startBattleButton.addEventListener("click", startBattle);
+  }
+
+  // Обновляем отображение здоровья
+  updatePlayerHP();
+  updateSlimeHP();
+});
