@@ -1,428 +1,263 @@
 /* Общие стили */
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'M PLUS Rounded 1c', sans-serif; /* Мягкий и дружелюбный шрифт */
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #F5F5F5, #fff);
-    color: #424242;
-    line-height: 1.8;
+    background: linear-gradient(to bottom, #e0f7fa, #fff); /* Светлый и воздушный фон */
+    color: #333;
+    line-height: 1.6;
 }
 
 h1, h2, h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    color: #212121;
+    font-family: 'Oswald', sans-serif; /* Заметный и стильный шрифт для заголовков */
+    font-weight: 700;
+    color: #e91e63; /* Яркий розовый цвет для заголовков */
+    margin-bottom: 0.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Небольшая тень для заголовков */
 }
 
 a {
-    color: #26A69A;
+    color: #29b6f6; /* Яркий голубой цвет для ссылок */
     text-decoration: none;
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 a:hover {
-    color: #00796B;
-    text-decoration: none;
-    text-shadow: 0 0 5px rgba(38, 166, 154, 0.5);
+    color: #03a9f4; /* Более яркий голубой цвет при наведении */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .button {
-    background: #26A69A;
-    color: white;
-    padding: 16px 32px;
+    background: linear-gradient(to right, #29b6f6, #03a9f4); /* Градиент для кнопок */
+    color: #fff;
+    padding: 12px 24px;
     border: none;
-    border-radius: 8px;
+    border-radius: 20px; /* Закругленные углы для кнопок */
     cursor: pointer;
-    display: inline-block;
     transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    font-size: 1.2em;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Более выраженная тень для кнопок */
 }
 
 .button:hover {
-    background: #00796B;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #03a9f4, #29b6f6); /* Меняем градиент при наведении */
+    transform: translateY(-2px); /* Небольшое приподнимание при наведении */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Шапка */
 header {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-bottom: none;
-    backdrop-filter: blur(5px);
-    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    text-align: center;
 }
 
 .logo h1 {
-    font-size: 2.4em;
     margin: 0;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #212121;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 2.5em;
+    color: #e91e63; /* Розовый цвет для логотипа */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Более выраженная тень для логотипа */
 }
 
+/* Навигация */
 nav ul {
     list-style: none;
-    margin: 0;
     padding: 0;
-    display: flex;
+    margin: 0;
+    text-align: center;
 }
 
 nav li {
-    margin-left: 35px;
+    display: inline;
+    margin: 0 20px;
 }
 
 nav a {
-    font-size: 1.2em;
-    display: block;
-    padding: 12px 18px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-    color: #424242;
+    color: #777;
+    font-weight: 600;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 nav a:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    color: #212121;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #29b6f6; /* Голубой цвет при наведении */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Главная страница */
+/* Главная страница (Hero) */
 .hero {
-    padding: 120px 20px;
-    text-align: center;
-    background: url('https://avatars.mds.yandex.net/i?id=90bb7265b375979729186a707841630b_l-4256903-images-thumbs&n=13') center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.pinimg.com/originals/4a/ca/4b/4aca4b697c1409f54605654449273d5c.jpg') center/cover no-repeat; /* Аниме-фон */
     color: #fff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    border-radius: 12px;
-}
-
-.hero-text {
-    max-width: 900px;
-    margin: 0 auto;
+    text-align: center;
+    padding: 150px 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Тень для текста на фоне */
 }
 
 .hero h2 {
-    font-size: 4em;
-    margin-bottom: 30px;
+    font-size: 3.5em;
     color: #fff;
-    font-weight: bold;
-    letter-spacing: -1px;
 }
 
 .hero p {
-    font-size: 1.6em;
-    margin-bottom: 50px;
-    color: #eee;
-    line-height: 1.9;
+    font-size: 1.4em;
+    margin-bottom: 2em;
 }
 
-/* Страница "О новелле" */
+/* Разделы */
 .about-section,
 .author-section,
 .warnings-section {
-    padding: 50px;
-    margin-bottom: 40px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-}
-
-.about-section h2,
-.author-section h3,
-.warnings-section h3 {
-    margin-bottom: 25px;
-    color: #212121;
-    font-size: 2.4em;
-    font-weight: bold;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.author-section p {
-    font-size: 1.2em;
-    color: #555;
+    padding: 40px 20px;
+    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон */
+    margin-bottom: 30px;
+    border-radius: 15px; /* Более скругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
 }
 
 /* Страница чтения главы */
 .chapter-page {
     display: flex;
-    padding: 40px;
+    padding: 40px 20px;
 }
 
 .chapter-content {
     flex: 2;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 50px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    font-family: 'Montserrat', sans-serif;
-    line-height: 2;
-    font-size: 1.4em;
-    word-break: break-word;
-    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон */
+    padding: 30px;
+    border-radius: 15px; /* Более скругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
 }
 
 .chapter-sidebar {
     flex: 1;
-    margin-left: 40px;
-    background-color: rgba(245, 245, 245, 0.9);
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(5px);
-}
-
-.chapter-sidebar h3 {
-    margin-bottom: 25px;
-    color: #212121;
-    font-size: 1.8em;
-    font-weight: bold;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.chapter-sidebar p {
-    font-size: 1.2em;
-    color: #555;
-    line-height: 1.7;
+    margin-left: 20px;
+    padding: 30px;
+    background-color: rgba(242, 242, 242, 0.7); /* Полупрозрачный серый фон */
+    border-radius: 15px; /* Более скругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
 }
 
 /* Список глав */
 .chapters-list {
-    padding: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .chapter-card {
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 40px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    border: none;
+    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон */
+    border-radius: 15px; /* Более скругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    backdrop-filter: blur(5px);
 }
 
 .chapter-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .chapter-card h3,
 .chapter-card p {
-    padding: 25px;
-}
-
-.chapter-card h3 {
-    font-size: 1.6em;
-    margin-bottom: 15px;
-    color: #212121;
-    font-weight: bold;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.chapter-card p {
-    font-size: 1.2em;
-    color: #555;
-    line-height: 1.8;
+    padding: 20px;
 }
 
 /* Подвал */
 footer {
-    background-color: #212121;
-    color: white;
-    padding: 30px;
-    text-align: center;
-    font-size: 1em;
-    border-top: none;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-}
-
-.social-links a {
-    display: inline-block;
-    margin: 0 20px;
+    background-color: #2c3e50; /* Темно-синий цвет для подвала */
     color: #fff;
-    transition: color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Тень для подвала */
 }
 
-.social-links a:hover {
-    color: #ccc;
-    transform: translateY(-2px);
+/* Страница персонажей */
+.characters-page {
+    padding: 40px 20px;
+    background: url('https://wallpapercave.com/wp/wp7428442.jpg') center/cover no-repeat; /* Аниме-фон для страницы персонажей */
+    color: #fff;
+}
+
+.character-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.character-card {
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон для карточек */
+    border-radius: 15px; /* Более скругленные углы */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Еще более выраженная тень */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333; /* Темный цвет текста для карточек */
+}
+
+.character-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.character-image {
+    width: 100%;
+    height: 250px; /* Увеличенная высота для изображений */
+    object-fit: cover;
+    border-bottom: 3px solid #e91e63; /* Розовая линия снизу изображений */
+}
+
+.character-info {
+    padding: 20px;
+}
+
+.character-name {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    color: #e91e63; /* Розовый цвет для имен персонажей */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Тень для имен */
+}
+
+.character-description {
+    color: #555;
 }
 
 /* Адаптивный дизайн */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 25px;
-    }
-
-    .logo h1 {
-        font-size: 1.8em;
-        margin-bottom: 12px;
-    }
-
-    nav ul {
-        flex-direction: column;
+        padding: 10px 0;
     }
 
     nav li {
-        margin-left: 0;
-        margin-top: 12px;
+        margin: 0 10px;
     }
 
     .chapter-page {
         flex-direction: column;
-        padding: 30px;
     }
 
     .chapter-sidebar {
         margin-left: 0;
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
-    .hero {
-        padding: 80px 20px;
+    .characters-page {
+        padding: 20px;
     }
 
-    .hero h2 {
-        font-size: 3.2em;
+    .character-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
-    .chapters-list {
-        justify-content: center;
-        gap: 25px;
-    }
-
-    .chapter-card {
-        width: 100%;
+    .character-image {
+        height: 150px;
     }
 }
 
-/* Добавляем стили для скрытия элементов */
-.hidden {
-    display: none !important;
-}
-
-/* Стили для контейнера с вариантами выбора */
-.choice-container {
-    margin-top: 25px;
-    text-align: center;
-}
-
-/* Стили для кнопок выбора */
-.choice-button {
-    background: linear-gradient(to right, #43a047, #1b5e20);
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.1em;
-    margin: 5px 3px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-}
-
-.choice-button:hover {
-    background: linear-gradient(to right, #1b5e20, #43a047);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Стили для кнопки "Назад" */
-.back-button {
-    background: linear-gradient(to right, #e53935, #b71c1c);
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.1em;
-    margin: 5px 3px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    display: none;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-}
-
-.back-button:hover {
-    background: linear-gradient(to right, #b71c1c, #e53935);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Стили для кнопки "Переиграть главу" */
-.restart-button {
-    background: linear-gradient(to right, #ffb300, #f57c00);
-    border: none;
-    color: white;
-    padding: 12px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1em;
-    margin-top: 12px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-}
-
-.restart-button:hover {
-    background: linear-gradient(to right, #f57c00, #ffb300);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Стили для сообщения "В разработке" */
-.development-message {
-    text-align: center;
-    padding: 50px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    margin: 20px;
-}
-
-.development-message h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.development-message p {
-    font-size: 1.2em;
-}
-
-/* Скругление углов для разных блоков */
-.about-section,
-.author-section,
-.warnings-section,
-.chapter-content,
-.chapter-sidebar,
-.chapter-card,
-.development-message,
-header,
-.hero,
-footer {
-    border-radius: 12px;
-}
+/* Подключение шрифтов Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Oswald:wght@400;700&display=swap');
